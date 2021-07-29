@@ -21,5 +21,4 @@ jobs:
           VALIDATE_PYTHON_BLACK: true
           VALIDATE_PYTHON_ISORT: true
           VALIDATE_JSCPD: true
-          VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
