@@ -1,14 +1,17 @@
+from statistics import mean
 from typing import Union
 
 import tensorflow as tf
 
 
 class EpochEnd(tf.keras.callbacks.Callback):
-    def __init__(self, schedule: Union[int, list]):
+    def __init__(self, schedule: Union[int, list], round_time: int = 2):
         super(EpochEnd, self).__init__()
         self.schedule = schedule
         self.start_time = None
         self.end_time = None
+        self.times = list()
+        self.round_time = round_time
 
         self.is_int = False
         self.is_list = False
@@ -40,6 +43,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
         # Use Python built in functions to allow using in @tf.function see
         # https://github.com/tensorflow/tensorflow/issues/27491#issuecomment-890887810
         time = float(self.end_time - self.start_time)
+        self.times.append(time)
 
         # Since we have similar logging code use the fact that if first argument of and is False Python doesn't
         # execute the second argument
@@ -48,4 +52,5 @@ class EpochEnd(tf.keras.callbacks.Callback):
         ):
             data = logs
             data["epoch"] = epoch
-            data["time"] = time
+            data["avg_time"] = round(mean(self.times), self.round_time)
+            self.times = list()
