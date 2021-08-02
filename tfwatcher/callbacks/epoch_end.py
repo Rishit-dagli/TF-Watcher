@@ -42,7 +42,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
         time = float(self.end_time - self.start_time)
 
         # Since we have similar logging code use the fact that if first argument of and is False Python doesn't
-        # execute the second one
+        # execute the second argument
         if (self.is_int and ((epoch + 1) % self.schedule == 0)) or (
             self.is_list and ((epoch + 1) in self.schedule)
         ):
