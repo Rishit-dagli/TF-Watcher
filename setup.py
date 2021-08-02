@@ -1,5 +1,6 @@
-from setuptools import setup
 import os.path
+
+from setuptools import setup
 
 
 def read(rel_path: str) -> str:
@@ -19,7 +20,7 @@ def get_version(rel_path: str) -> str:
 
 
 this_directory = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
