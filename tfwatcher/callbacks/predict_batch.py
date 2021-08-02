@@ -20,9 +20,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         elif isinstance(self.schedule, list):
             self.is_list = True
         else:
-            raise ValueError(
-                "schedule should either be an integer or a list"
-            )
+            raise ValueError("schedule should either be an integer or a list")
 
         if self.is_list:
             try:
