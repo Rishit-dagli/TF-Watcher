@@ -21,7 +21,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
             self.is_list = True
         else:
             raise ValueError(
-                "schedule should either be an integer or a list of integers"
+                "schedule should either be an integer or a list"
             )
 
         if self.is_list:
