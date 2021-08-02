@@ -4,9 +4,9 @@ from typing import Union
 import tensorflow as tf
 
 
-class BatchEnd(tf.keras.callbacks.Callback):
+class TrainBatchEnd(tf.keras.callbacks.Callback):
     def __init__(self, schedule: Union[int, list], round_time: int = 2):
-        super(BatchEnd, self).__init__()
+        super(TrainBatchEnd, self).__init__()
         self.schedule = schedule
         self.start_time = None
         self.end_time = None
@@ -21,7 +21,7 @@ class BatchEnd(tf.keras.callbacks.Callback):
             self.is_list = True
         else:
             raise ValueError(
-                "schedule should either be an integer or a list of integers"
+                "schedule should either be an integer or a list"
             )
 
         if self.is_list:
