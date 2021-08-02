@@ -36,15 +36,16 @@ class EpochEnd(tf.keras.callbacks.Callback):
 
     def on_epoch_end(self, epoch: int, logs: dict = None):
         self.end_time = tf.timestamp()
-        if self.is_int:
-            if (epoch + 1) % self.schedule == 0:
-                data = logs
-                data["epoch"] = epoch
-        if self.is_list:
-            if (epoch + 1) in self.schedule:
-                data = logs
-                data["epoch"] = epoch
 
         # Use Python built in functions to allow using in @tf.function see
         # https://github.com/tensorflow/tensorflow/issues/27491#issuecomment-890887810
-        float(self.end_time - self.start_time)
+        time = float(self.end_time - self.start_time)
+
+        # Since we have similar logging code use the fact that if first argument of and is False Python doesn't
+        # execute the second one
+        if (self.is_int and ((epoch + 1) % self.schedule == 0)) or (
+            self.is_list and ((epoch + 1) in self.schedule)
+        ):
+            data = logs
+            data["epoch"] = epoch
+            data["time"] = time
