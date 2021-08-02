@@ -1,5 +1,6 @@
-import tensorflow as tf
 from typing import Union
+
+import tensorflow as tf
 
 
 class EpochEnd(tf.keras.callbacks.Callback):
