@@ -18,8 +18,9 @@ def get_version(rel_path: str) -> str:
     raise RuntimeError("Unable to find version string.")
 
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+this_directory = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name="tf-watcher",
