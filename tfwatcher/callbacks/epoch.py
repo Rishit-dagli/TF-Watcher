@@ -50,5 +50,6 @@ class EpochEnd(tf.keras.callbacks.Callback):
         ):
             data = logs
             data["epoch"] = epoch
+            data["batch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
             self.times = list()

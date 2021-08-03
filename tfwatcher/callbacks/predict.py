@@ -20,4 +20,6 @@ class PredictEnd(tf.keras.callbacks.Callback):
         self.time = float(self.end_time - self.start_time)
 
         data = logs
+        data["epoch"] = False
+        data["batch"] = False
         data["avg_time"] = self.time
