@@ -5,7 +5,7 @@ import tensorflow as tf
 
 
 class TrainBatchEnd(tf.keras.callbacks.Callback):
-    def __init__(self, schedule: Union[int, list], round_time: int = 2):
+    def __init__(self, schedule: Union[int, list] = 1, round_time: int = 2):
         super(TrainBatchEnd, self).__init__()
         self.schedule = schedule
         self.start_time = None
