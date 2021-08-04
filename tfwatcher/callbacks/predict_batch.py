@@ -11,7 +11,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         self,
         schedule: Union[int, list] = 1,
         round_time: int = 2,
-        display_at_epoch: bool = False,
+        print_logs: bool = False,
     ):
         super(PredictBatchEnd, self).__init__()
         self.schedule = schedule
@@ -19,7 +19,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         self.end_time = None
         self.times = list()
         self.round_time = round_time
-        self.display_at_epoch = display_at_epoch
+        self.print_logs = print_logs
 
         self.ref_id = random_char(7)
         print(f"Use this ID to monitor training for this session: {self.ref_id}")
@@ -63,12 +63,11 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
             data["batch"] = batch
             data["epoch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
-            data["time"] = self.times
-            self.times = list()
-
-            if self.display_at_epoch == True:
-                print(data)
-            else:
-                pass
 
             write_in_callback(data=data, ref_id=self.ref_id)
+
+            data["time"] = self.times
+            if self.print_logs:
+                print(data)
+
+            self.times = list()
