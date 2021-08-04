@@ -1,7 +1,6 @@
 from statistics import mean
 from typing import Union
 
-
 import tensorflow as tf
 
 from ..firebase_helpers import random_char, write_in_callback
