@@ -58,7 +58,7 @@ class train_epoch_Log(tf.keras.callbacks.Callback):
         self.avg_time_list.append(round(mean(self.times), self.round_time))
 
         self.display_json_logs={
-               "Epoch : ":self.epochs_count, "Loss":self.losses,"Accuracy":self.acc,"Validation Loss":self.val_loss,"Validation Accuracy":self.val_acc,"Average_Time":self.avg_time_list
+               "Epoch : ":self.epochs_count, "Loss":self.losses,"Accuracy":self.acc,"Validation Loss":self.val_loss,"Validation Accuracy":self.val_acc,"Average_Time":self.avg_time_list,"Times": self.times
         }
         json_logs=json.dumps(self.display_json_logs)
 
