@@ -3,9 +3,9 @@ import pyrebase
 from .firebase_config import get_firebase_config
 
 
-def write_to_firebase(data: dict, config: dict, ref_id: str, level: str):
+def write_to_firebase(data: dict, ref_id: str, level: str):
     # level can be epoch, batch, prediction
-    firebase = pyrebase.initialize_app(config)
+    firebase = pyrebase.initialize_app(get_firebase_config())
     log_db = firebase.database()
 
     if level == "prediction":
