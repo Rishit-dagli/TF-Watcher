@@ -17,5 +17,5 @@ def write_to_firebase(data: dict, ref_id: str, level: str):
         log_db.child(ref_id).child(data[level]).push(data)
 
 
-def random_char(y):
+def random_char(y: int) -> str:
     return "".join(random.choice(string.ascii_letters) for _ in range(y))
