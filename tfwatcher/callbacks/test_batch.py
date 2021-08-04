@@ -56,9 +56,11 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
 
         # Since we have similar logging code use the fact that if first argument of and is False Python doesn't
         # execute the second argument
-        if (self.is_int and ((batch + 1) % self.schedule == 0)) or (
-            self.is_list and ((batch + 1) in self.schedule)
-        ):
+        if (
+            (self.is_int and ((batch + 1) % self.schedule == 0))
+            or (self.is_list and ((batch + 1) in self.schedule))
+        ) or (batch == 0):
+
             data = logs
             data["batch"] = batch
             data["epoch"] = False
