@@ -17,5 +17,16 @@ def write_to_firebase(data: dict, ref_id: str, level: str):
         log_db.child(ref_id).child(data[level]).push(data)
 
 
+def write_in_callback(data: dict, ref_id: str):
+    if data["epoch"]:
+        level = "epoch"
+    elif data["batch"]:
+        level = "batch"
+    else:
+        level = "prediction"
+
+    write_to_firebase(data=data, ref_id=ref_id, level=level)
+
+
 def random_char(y: int) -> str:
     return "".join(random.choice(string.ascii_letters) for _ in range(y))
