@@ -1,12 +1,15 @@
 import React from 'react';
-import { Center, Text } from '@chakra-ui/react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ChartScreen from './screens/ChartScreen';
+import HomeScreen from './screens/HomeScreen';
 
 const App = () => (
-  <Center>
-    <Text fontSize="4xl" paddingTop="5">
-      TF Watcher
-    </Text>
-  </Center>
+  <BrowserRouter>
+    <Switch>
+      <Route path="/logs" component={ChartScreen} />
+      <Route path="/" component={HomeScreen} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default App;
