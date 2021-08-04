@@ -1,7 +1,12 @@
 import React from 'react';
+import { Center, Text } from '@chakra-ui/react';
 
 const App = () => (
-  <h1>TF Watcher</h1>
+  <Center>
+    <Text fontSize="4xl" paddingTop="5">
+      TF Watcher
+    </Text>
+  </Center>
 );
 
 export default App;
