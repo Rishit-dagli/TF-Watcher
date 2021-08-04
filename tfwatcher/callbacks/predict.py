@@ -4,13 +4,13 @@ from ..firebase_helpers import random_char, write_in_callback
 
 
 class PredictEnd(tf.keras.callbacks.Callback):
-    def __init__(self, round_time: int = 2,display_at_epoch=False):
+    def __init__(self, round_time: int = 2, display_at_epoch=False):
         super(PredictEnd, self).__init__()
         self.round_time = round_time
         self.start_time = None
         self.end_time = None
         self.time = None
-        self.display_at_epoch=display_at_epoch
+        self.display_at_epoch = display_at_epoch
 
         self.ref_id = random_char(7)
         print(f"Use this ID to monitor training for this session: {self.ref_id}")
@@ -30,10 +30,9 @@ class PredictEnd(tf.keras.callbacks.Callback):
         data["batch"] = False
         data["avg_time"] = self.time
 
-        if self.display_at_epoch==True:
-                print(data)
+        if self.display_at_epoch == True:
+            print(data)
         else:
-                pass
-        
+            pass
 
         write_in_callback(data=data, ref_id=self.ref_id)
