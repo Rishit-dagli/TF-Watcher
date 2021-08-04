@@ -7,13 +7,19 @@ from ..firebase_helpers import random_char, write_in_callback
 
 
 class TrainBatchEnd(tf.keras.callbacks.Callback):
-    def __init__(self, schedule: Union[int, list] = 1, round_time: int = 2):
+    def __init__(
+        self,
+        schedule: Union[int, list] = 1,
+        round_time: int = 2,
+        print_logs: bool = False,
+    ):
         super(TrainBatchEnd, self).__init__()
         self.schedule = schedule
         self.start_time = None
         self.end_time = None
         self.times = list()
         self.round_time = round_time
+        self.print_logs = print_logs
 
         self.ref_id = random_char(7)
         print(f"Use this ID to monitor training for this session: {self.ref_id}")
@@ -57,6 +63,11 @@ class TrainBatchEnd(tf.keras.callbacks.Callback):
             data["batch"] = batch
             data["epoch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
-            self.times = list()
 
             write_in_callback(data=data, ref_id=self.ref_id)
+
+            data["time"] = self.times
+            if self.print_logs:
+                print(data)
+
+            self.times = list()
