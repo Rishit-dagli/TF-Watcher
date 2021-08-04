@@ -4,7 +4,7 @@ from ..firebase_helpers import random_char, write_in_callback
 
 
 class PredictEnd(tf.keras.callbacks.Callback):
-    def __init__(self, round_time: int = 2, display_at_epoch=False):
+    def __init__(self, round_time: int = 2, display_at_epoch: bool = False):
         super(PredictEnd, self).__init__()
         self.round_time = round_time
         self.start_time = None

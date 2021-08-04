@@ -11,7 +11,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
         self,
         schedule: Union[int, list] = 1,
         round_time: int = 2,
-        display_at_epoch=False,
+        display_at_epoch: bool = False,
     ):
         super(EpochEnd, self).__init__()
         self.schedule = schedule
