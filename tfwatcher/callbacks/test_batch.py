@@ -3,6 +3,8 @@ from typing import Union
 
 import tensorflow as tf
 
+from ..firebase_helpers import random_char, write_in_callback
+
 
 class TestBatchEnd(tf.keras.callbacks.Callback):
     def __init__(self, schedule: Union[int, list] = 1, round_time: int = 2):
@@ -12,6 +14,9 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
         self.end_time = None
         self.times = list()
         self.round_time = round_time
+
+        self.ref_id = random_char(7)
+        print(f"Use this ID to monitor training for this session: {self.ref_id}")
 
         self.is_int = False
         self.is_list = False
@@ -53,3 +58,5 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
             data["epoch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
             self.times = list()
+
+            write_in_callback(data=data, ref_id=self.ref_id)
