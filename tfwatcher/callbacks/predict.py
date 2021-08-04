@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+from ..firebase_helpers import random_char, write_in_callback
+
 
 class PredictEnd(tf.keras.callbacks.Callback):
     def __init__(self, round_time: int = 2):
@@ -8,6 +10,9 @@ class PredictEnd(tf.keras.callbacks.Callback):
         self.start_time = None
         self.end_time = None
         self.time = None
+
+        self.ref_id = random_char(7)
+        print(f"Use this ID to monitor training for this session: {self.ref_id}")
 
     def on_predict_begin(self, logs=None):
         self.start_time = tf.timestamp()
@@ -23,3 +28,5 @@ class PredictEnd(tf.keras.callbacks.Callback):
         data["epoch"] = False
         data["batch"] = False
         data["avg_time"] = self.time
+
+        write_in_callback(data=data, ref_id=self.ref_id)
