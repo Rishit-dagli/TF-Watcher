@@ -7,10 +7,10 @@ Welcome to TF Watcher's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
-
+   tfwatcher
 
 Indices and tables
 ==================
