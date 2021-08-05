@@ -8,9 +8,9 @@ from .firebase_config import get_firebase_config
 
 def write_to_firebase(data: dict, ref_id: str, level: str):
     """Writes data to Firebase Realtime Database using
-    `https://github.com/thisbejim/Pyrebase <https://stackoverflow.com/a/37484053/11878567>`_
-    , a simple Python wrapper around the Firebase API. This automatically fetches the
-    Firebase Config from :func:`firebase_config.get_firebase_config` .
+    `Pyrebase <https://github.com/thisbejim/Pyrebase>`_ , a simple Python wrapper 
+    around the Firebase API. This automatically fetches the Firebase Config from 
+    :func:`firebase_config.get_firebase_config` .
 
     :param data: A dictionary of the logging metrics, epoch number and average time
         which are to be logged to Firebase
