@@ -9,10 +9,11 @@ from ..firebase_helpers import random_char, write_in_callback
 class EpochEnd(tf.keras.callbacks.Callback):
     """This class is a subclass of the `tf.keras.callbacks.Callback <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback>`_
     abstract base class and overrides the methods :func:`on_epoch_begin` and :func:`on_epoch_end`
-    . This class also uses the :mod:`..firebase_helpers` to send data to Firebase
-    Realtime database and also creates a 7 character unique string where the data
-    is pushed on Firebase. Logging to Firebase is also controllable by ``schedule``
-    argument, even providing a granular control for each epoch.
+    allowing logging after epochs in training. This class also uses the 
+    :mod:`..firebase_helpers` to send data to Firebase Realtime database and also 
+    creates a 7 character unique string where the data is pushed on Firebase. Logging 
+    to Firebase is also controllable by ``schedule`` argument, even providing a 
+    granular control for each epoch.
 
     Example:
     =========
@@ -114,7 +115,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
 
         :param epoch: Index of epoch
         :type epoch: int
-        :param logs: metric results for this training epoch, and for the validation
+        :param logs: Metric results for this training epoch, and for the validation
             epoch if validation is performed. Validation result keys are prefixed with
             ``val_``. For training epoch, the values of the Model's metrics are
             returned. Example : ``{'loss': 0.2, 'accuracy': 0.7}``, defaults to None
