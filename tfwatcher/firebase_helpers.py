@@ -8,7 +8,7 @@ from .firebase_config import get_firebase_config
 
 def write_to_firebase(data: dict, ref_id: str, level: str) -> None:
     """Writes data to Firebase using `https://github.com/thisbejim/Pyrebase <https://stackoverflow.com/a/37484053/11878567>`_
-    , a simply Python wrapper around the Firebase API.
+    , a simple Python wrapper around the Firebase API.
 
     :param data: A dictionary of Firebase project configuration from
         :func:`firebase_config.get_firebase_config`
