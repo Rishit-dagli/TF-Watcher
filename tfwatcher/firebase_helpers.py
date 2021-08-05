@@ -18,9 +18,9 @@ def write_to_firebase(data: dict, ref_id: str, level: str):
 
 
 def write_in_callback(data: dict, ref_id: str):
-    if data["epoch"]:
+    if data["epoch"] or (data["epoch"] is 0):
         level = "epoch"
-    elif data["batch"]:
+    elif data["batch"] or (data["batch"] is 0):
         level = "batch"
     else:
         level = "prediction"
