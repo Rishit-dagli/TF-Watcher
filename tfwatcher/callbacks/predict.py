@@ -65,7 +65,7 @@ class PredictEnd(tf.keras.callbacks.Callback):
 
         self.start_time = tf.timestamp()
 
-    def on_predict_end(self, logs: dict=None):
+    def on_predict_end(self, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_predict_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_predict_end>`_
         method which is called at the end of prediction.
 
@@ -73,7 +73,7 @@ class PredictEnd(tf.keras.callbacks.Callback):
             logs during the start of an epoch, defaults to None
         :type logs: dict, optional
         """
-        
+
         self.end_time = tf.timestamp()
 
         # Use Python built in functions to allow using in @tf.function see

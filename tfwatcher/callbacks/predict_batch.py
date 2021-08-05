@@ -101,7 +101,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
 
         :param batch: Index of batch within the current epoch
         :type batch: int
-        :param logs: contains the return value of ``model.predict_step``, it typically 
+        :param logs: contains the return value of ``model.predict_step``, it typically
             returns a dict with a key 'outputs' containing the model's outputs
         :type logs: dict, optional
         """
@@ -110,8 +110,8 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
 
     def on_predict_batch_end(self, batch: int, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_predict_batch_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_predict_batch_end>`_
-        method which is called called at the end of a batch in predict methods. This 
-        method adds the batch number, the average time taken and pushes it to Firebase 
+        method which is called called at the end of a batch in predict methods. This
+        method adds the batch number, the average time taken and pushes it to Firebase
         using the :mod:`..firebase_helpers` module.
 
         :param epoch: Index of batch within the current epoch
@@ -119,7 +119,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         :param logs: Aggregated metric results up until this batch, defaults to None
         :type logs: dict, optional
         """
-        
+
         self.end_time = tf.timestamp()
 
         # Use Python built in functions to allow using in @tf.function see

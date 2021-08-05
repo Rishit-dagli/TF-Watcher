@@ -111,8 +111,8 @@ class TrainBatchEnd(tf.keras.callbacks.Callback):
 
     def on_train_batch_end(self, batch: int, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_train_batch_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_train_batch_end>`_
-        method which is called called at the end of a batch in of a training batch in 
-        fit methods. This method adds the batch number, the average time taken and 
+        method which is called called at the end of a batch in of a training batch in
+        fit methods. This method adds the batch number, the average time taken and
         pushes it to Firebase using the :mod:`..firebase_helpers` module.
 
         :param epoch: Index of batch within the current epoch
