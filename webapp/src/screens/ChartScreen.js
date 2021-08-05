@@ -8,6 +8,7 @@ import {
 
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
+import LineChartComponent from '../components/LineChartComponent';
 
 const ChartScreen = () => {
   const { user, loading } = useContext(UserContext);
@@ -30,9 +31,6 @@ const ChartScreen = () => {
     });
   }, []);
 
-  // eslint-disable-next-line no-console
-  console.log(logs);
-
   return (
     <>
       { !loading && !user ? (
@@ -40,6 +38,7 @@ const ChartScreen = () => {
       ) : (
         <VStack>
           <Text fontSize="3xl">Chart screen</Text>
+          <LineChartComponent logs={logs} />
         </VStack>
       )}
     </>
