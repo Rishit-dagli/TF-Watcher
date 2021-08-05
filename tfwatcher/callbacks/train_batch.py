@@ -16,7 +16,6 @@ class TrainBatchEnd(tf.keras.callbacks.Callback):
     granular control for each batch in fit methods.
 
     Example:
-    =========
 
     .. code-block:: python
         :caption: Logging data after every batch in fit methods

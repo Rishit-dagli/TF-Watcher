@@ -11,7 +11,6 @@ class PredictEnd(tf.keras.callbacks.Callback):
     creates a 7 character unique string where the data is pushed on Firebase.
 
     Example:
-    =========
 
     .. code-block:: python
         :caption: Logging data after predict method

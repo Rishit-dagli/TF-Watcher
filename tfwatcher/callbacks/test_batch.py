@@ -17,7 +17,6 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
     granular control for each batch in ``evaluate`` methods.
 
     Example:
-    =========
 
     .. code-block:: python
         :caption: Logging data after every batch in evaluate methods
