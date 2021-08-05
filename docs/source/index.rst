@@ -16,7 +16,8 @@ Colab and Kaggle.
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
-
+   
+   introduction
    tfwatcher
 
 Indices and tables
