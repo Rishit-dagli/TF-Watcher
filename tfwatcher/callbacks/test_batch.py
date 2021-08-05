@@ -114,7 +114,7 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
 
     def on_test_batch_end(self, batch: int, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_test_batch_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_test_batch_end>`_
-        method which is called called at the end of a batch in of a batch in evaluate
+        method which is called called at the end of a batch in evaluate
         methods and at the beginning of a validation batch in the fit methods, if
         validation data is provided. This method adds the batch number, the average
         time taken and pushes it to Firebase using the :mod:`..firebase_helpers` module.
