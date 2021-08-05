@@ -6,6 +6,9 @@
 Welcome to TF Watcher's documentation!
 ======================================
 
+.. image:: https://img.shields.io/github/stars/Rishit-dagli/TF-Watcher?style=social   :alt: GitHub Repo stars
+.. image:: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTF-Watcher   :alt: Twitter URL
+
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
