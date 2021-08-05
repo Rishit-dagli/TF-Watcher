@@ -9,10 +9,10 @@ from ..firebase_helpers import random_char, write_in_callback
 class TestBatchEnd(tf.keras.callbacks.Callback):
     """This class is a subclass of the `tf.keras.callbacks.Callback <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback>`_
     abstract base class and overrides the methods :func:`on_test_batch_begin` and :func:`on_test_batch_end`
-    allowing loging after batches in ``evaluate`` methods and at the beginning of a 
-    validation batch in the fit methods, if validation data is provided. This class 
-    also uses the :mod:`..firebase_helpers` to send data to Firebase Realtime database 
-    and also creates a 7 character unique string where the data is pushed on Firebase. 
+    allowing loging after batches in ``evaluate`` methods and at the beginning of a
+    validation batch in the fit methods, if validation data is provided. This class
+    also uses the :mod:`..firebase_helpers` to send data to Firebase Realtime database
+    and also creates a 7 character unique string where the data is pushed on Firebase.
     Logging to Firebase is also controllable by ``schedule`` argument, even providing a
     granular control for each batch in ``evaluate`` methods.
 
@@ -96,16 +96,16 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
                     )
                 )
 
-    def on_test_batch_begin(self, batch: int, logs: dict=None):
+    def on_test_batch_begin(self, batch: int, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_test_batch_begin <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_test_batch_begin>`_
-        method which is called called at the beginning of a batch in evaluate methods 
-        and at the beginning of a validation batch in the fit methods, if validation 
+        method which is called called at the beginning of a batch in evaluate methods
+        and at the beginning of a validation batch in the fit methods, if validation
         data is provided.
 
         :param batch: Index of batch within the current epoch
         :type batch: int
-        :param logs: contains the return value of ``model.test_step``. Typically, the 
-            values of the Model's metrics are returned. 
+        :param logs: contains the return value of ``model.test_step``. Typically, the
+            values of the Model's metrics are returned.
             Example: ``{'loss': 0.2, 'accuracy': 0.7}``.
         :type logs: dict, optional
         """
@@ -114,9 +114,9 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
 
     def on_test_batch_end(self, batch: int, logs: dict = None):
         """Overrides the `tf.keras.callbacks.Callback.on_test_batch_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_test_batch_end>`_
-        method which is called called at the end of a batch in of a batch in evaluate 
-        methods and at the beginning of a validation batch in the fit methods, if 
-        validation data is provided. This method adds the batch number, the average 
+        method which is called called at the end of a batch in of a batch in evaluate
+        methods and at the beginning of a validation batch in the fit methods, if
+        validation data is provided. This method adds the batch number, the average
         time taken and pushes it to Firebase using the :mod:`..firebase_helpers` module.
 
         :param epoch: Index of batch within the current epoch
