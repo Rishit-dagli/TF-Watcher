@@ -40,6 +40,11 @@ def write_in_callback(data: dict, ref_id: str):
     :func:`write_to_firebase` function. This function is also used to
     write data to Firebase in between callbacks (eg. the :class:`EpochEnd` class).
 
+    .. note::
+        This function is specially made to directly use in :obj:`callbacks` and does not 
+        require using ``level`` argument which is automatically calculated for callback 
+        classes.
+
     :param data: A dictionary of the logging metrics, epoch number and average time
         which are to be logged to Firebase
     :type data: dict
