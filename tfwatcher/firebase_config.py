@@ -1,7 +1,7 @@
 def get_firebase_config() -> dict:
     """Returns a dictionary to initialize Firebase containing registered app's
     Firebase project configuration. It is safe to expose Firebase apiKey
-    publicly, read `this Stack Overflow answer https://stackoverflow.com/a/37484053/11878567`_ .
+    publicly, read `this Stack Overflow answer <https://stackoverflow.com/a/37484053/11878567>`_ .
 
     :return: A dictionary of Firebase project configuration
     :rtype: dict
