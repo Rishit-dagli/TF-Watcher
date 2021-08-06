@@ -2,12 +2,12 @@ import React, {
   useContext, useState, useEffect,
 } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
-import {
-  VStack, Text, Spinner,
-} from '@chakra-ui/react';
+import { VStack, Text } from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
+
+import LoadingSpinner from '../components/LoadingSpinner';
 import ChartsContainer from '../components/ChartsContainer';
 
 const ChartScreen = () => {
@@ -50,17 +50,7 @@ const ChartScreen = () => {
   }, []);
 
   if (pageLoading) {
-    return (
-      <VStack marginTop="10">
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="teal.400"
-          size="xl"
-        />
-      </VStack>
-    );
+    return <LoadingSpinner />;
   }
 
   return (

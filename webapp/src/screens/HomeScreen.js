@@ -5,19 +5,25 @@ import {
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const HomeScreen = () => {
   const history = useHistory();
-  const { user } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
+  const [pageLoading, setPageLoading] = useState(true);
   const [loginStatus, setLoginStatus] = useState(false);
   const [key, setKey] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [err, setErr] = useState(false);
   const toast = useToast();
 
   useEffect(() => {
     if (user) setLoginStatus(true);
   }, [user]);
+
+  useEffect(() => {
+    if (!loading) setPageLoading(false);
+  });
 
   useEffect(() => {
     if (err) {
@@ -32,7 +38,7 @@ const HomeScreen = () => {
   }, [err]);
 
   const searchId = () => {
-    setLoading(true);
+    setSearchLoading(true);
     const rootRef = db.ref();
     let flag = 0;
     rootRef.on('value', (snapshot) => {
@@ -41,12 +47,16 @@ const HomeScreen = () => {
           flag = 1;
           return;
         }
-        setLoading(false);
+        setSearchLoading(false);
       });
       if (!flag) setErr(true);
       else { history.push(`/logs/${key}`); }
     });
   };
+
+  if (pageLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <VStack>
@@ -61,14 +71,14 @@ const HomeScreen = () => {
               variant="outline"
               boxShadow="md"
               onKeyPress={(e) => (e.key === 'Enter' ? searchId() : null)}
-              disabled={loading}
+              disabled={searchLoading}
             />
             <Button
               onClick={searchId}
               colorScheme="teal"
               paddingX="10"
               boxShadow="lg"
-              isLoading={loading}
+              isLoading={searchLoading}
             >
               View logs
             </Button>
