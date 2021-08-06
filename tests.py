@@ -57,7 +57,7 @@ history = model.fit(
     ],
 )
 
-# Breakpoint for EpochEnd and TrainBatchEnd
+
 print(history.history)
 log_history = history.history
 
@@ -70,11 +70,11 @@ loss_val, acc_val = model.evaluate(
     batch_size=2000,
 )
 
-# Breakpoint for TestBatchEnd Callback
+
 print(loss_val)
 print(acc_val)
 
-# Breakpoint for PredictEnd Callback
+
 predictions = model.predict(
     X_test, verbose=False, callbacks=[PredictEnd(print_logs=True)], batch_size=2000
 )
