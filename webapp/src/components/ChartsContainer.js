@@ -5,7 +5,14 @@ import BarChartComponent from './BarChartComponent';
 
 const ChartsContainer = (params) => {
   const { data } = params;
-  const { baseParam, chartsParams } = getAllParams(data);
+  let baseParam;
+  let chartsParams;
+
+  if (data) {
+    const temp = getAllParams(data);
+    baseParam = temp.baseParam;
+    chartsParams = temp.chartsParams;
+  }
 
   return (
     <>
