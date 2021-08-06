@@ -5,20 +5,19 @@ import pyrebase
 import pytest
 import tensorflow as tf
 from numpy.testing import (
-    assert_array_almost_equal,
     assert_array_compare,
     assert_array_equal,
 )
 from numpy.testing._private.utils import assert_almost_equal
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
-from tfwatcher.callbacks.epoch import EpochEnd
-from tfwatcher.callbacks.predict import PredictEnd
-from tfwatcher.callbacks.predict_batch import PredictBatchEnd
-from tfwatcher.callbacks.test_batch import TestBatchEnd
-from tfwatcher.callbacks.train_batch import TrainBatchEnd
-from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import (
+from .callbacks.epoch import EpochEnd
+from .callbacks.predict import PredictEnd
+from .callbacks.predict_batch import PredictBatchEnd
+from .callbacks.test_batch import TestBatchEnd
+from .callbacks.train_batch import TrainBatchEnd
+from .firebase_config import get_firebase_config
+from .firebase_helpers import (
     random_char,
     write_in_callback,
     write_to_firebase,
@@ -136,5 +135,3 @@ test_assert_len_acc(epochs, log_history)
 test_assert_len_loss(epochs, log_history)
 test_batch_bool(log_history)
 test_firebase_write(data=data)
-
-assert_array_almost_equal(y_test, np.array(predictions_list, dtype="uint8"))
