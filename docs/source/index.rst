@@ -21,6 +21,7 @@ Colab and Kaggle.
    :caption: Contents:
    
    introduction
+   installation
    tfwatcher
 
 Indices and tables
