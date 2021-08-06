@@ -132,10 +132,12 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
             (self.is_int and ((batch + 1) % self.schedule == 0))
             or (self.is_list and ((batch + 1) in self.schedule))
         ) or (batch == 0):
-            data = logs
-            data["batch"] = batch
-            data["epoch"] = False
-            data["avg_time"] = round(mean(self.times), self.round_time)
+
+            data = {
+                "batch": batch,
+                "epoch": False,
+                "avg_time": round(mean(self.times), self.round_time),
+            }
 
             write_in_callback(data=data, ref_id=self.ref_id)
 

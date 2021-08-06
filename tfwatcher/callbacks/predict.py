@@ -79,10 +79,7 @@ class PredictEnd(tf.keras.callbacks.Callback):
         # https://github.com/tensorflow/tensorflow/issues/27491#issuecomment-890887810
         self.time = float(self.end_time - self.start_time)
 
-        data = logs
-        data["epoch"] = False
-        data["batch"] = False
-        data["avg_time"] = self.time
+        data = {"epoch": False, "batch": False, "avg_time": self.time}
 
         write_in_callback(data=data, ref_id=self.ref_id)
 
