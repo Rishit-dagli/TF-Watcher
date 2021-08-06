@@ -1,0 +1,31 @@
+name: Build Docs
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        pre-build-command: "apt-get update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended imagemagick"
+        build-command: "make latexpdf"
+        docs-folder: "docs/"
+
+    # Create an artifact of the html output.
+    - uses: actions/upload-artifact@v2
+      with:
+        name: DocumentationHTML
+        path: docs/build/html/
+
+    # Create an artifact out of the previously built pdf.
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Documentation
+        path: docs/build/latex/tfwatcher.pdf

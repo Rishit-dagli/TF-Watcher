@@ -1,2 +1,3 @@
-tensorflow == 2.5.0
-pyrebase == 3.0.27
+pyrebase4
+tensorflow
+sphinx_rtd_theme
