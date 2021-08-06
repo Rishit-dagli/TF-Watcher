@@ -51,5 +51,7 @@ setup(
     author="Rishit Dagli",
     author_email="rishit.dagli@gmail.com",
     install_requires=["tensorflow >= 2.2.0", "pyrebase ~= 3.0.27"],
-    extras_require={"dev": ["check-manifest", "twine", "numpy", "black", "isort"],},
+    extras_require={
+        "dev": ["check-manifest", "twine", "numpy", "black", "isort"],
+    },
 )
