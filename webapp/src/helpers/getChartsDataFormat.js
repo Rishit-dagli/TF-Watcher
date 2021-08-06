@@ -23,7 +23,7 @@ const getAllParams = (data) => {
     chartsParams = charts;
   }
 
-  return { baseParam, logs: data, chartsParams };
+  return { baseParam, chartsParams };
 };
 
 export default getAllParams;

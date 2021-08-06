@@ -4,19 +4,19 @@ import AreaChartComponent from './AreaChartComponent';
 
 const ChartsContainer = (params) => {
   const { data } = params;
-  const { baseParam, chartsParams, logs } = getAllParams(data);
+  const { baseParam, chartsParams } = getAllParams(data);
 
   if (baseParam === 'epoch') {
     return (
       chartsParams.map(
-        (item) => <AreaChartComponent xaxis={baseParam} lineA={item} lineB={`val_${item}`} logs={logs} key={item} />,
+        (item) => <AreaChartComponent xaxis={baseParam} lineA={item} lineB={`val_${item}`} logs={data} key={item} />,
       )
     );
   }
 
   return (
     chartsParams.map(
-      (item) => <AreaChartComponent xaxis={baseParam} lineA={item} logs={logs} key={item} />,
+      (item) => <AreaChartComponent xaxis={baseParam} lineA={item} logs={data} key={item} />,
     )
   );
 };
