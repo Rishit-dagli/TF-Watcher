@@ -1,27 +1,22 @@
+  
 from logging import log
 
 import numpy as np
 import pyrebase
 import pytest
 import tensorflow as tf
-from numpy.testing import (
-    assert_array_compare,
-    assert_array_equal,
-)
+from numpy.testing import assert_array_compare, assert_array_equal
 from numpy.testing._private.utils import assert_almost_equal
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
+
 from .callbacks.epoch import EpochEnd
 from .callbacks.predict import PredictEnd
 from .callbacks.predict_batch import PredictBatchEnd
 from .callbacks.test_batch import TestBatchEnd
 from .callbacks.train_batch import TrainBatchEnd
 from .firebase_config import get_firebase_config
-from .firebase_helpers import (
-    random_char,
-    write_in_callback,
-    write_to_firebase,
-)
+from .firebase_helpers import random_char, write_in_callback, write_to_firebase
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
