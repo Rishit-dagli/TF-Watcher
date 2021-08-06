@@ -4,8 +4,11 @@ import numpy as np
 import pyrebase
 import pytest
 import tensorflow as tf
-from numpy.testing import (assert_array_almost_equal, assert_array_compare,
-                           assert_array_equal)
+from numpy.testing import (
+    assert_array_almost_equal,
+    assert_array_compare,
+    assert_array_equal,
+)
 from numpy.testing._private.utils import assert_almost_equal
 
 from tfwatcher.callbacks.epoch import EpochEnd
@@ -14,8 +17,7 @@ from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import (random_char, write_in_callback,
-                                        write_to_firebase)
+from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
@@ -46,7 +48,7 @@ model = make_model()
 model.summary()
 
 
-epochs = 20
+epochs = 10
 
 history = model.fit(
     X_train,
@@ -54,10 +56,10 @@ history = model.fit(
     epochs=epochs,
     validation_split=0.20,
     batch_size=4000,
-    verbose=2,
+    verbose=1,
     callbacks=[
-        EpochEnd(schedule=2, print_logs=True),
-        TrainBatchEnd(schedule=2, print_logs=True),
+        EpochEnd(schedule=3, print_logs=True),
+        TrainBatchEnd(schedule=3, print_logs=True),
     ],
 )
 
@@ -149,6 +151,15 @@ data = {
         2.091247797012329,
     ],
 }
+data2 = {
+    "val_loss": 2.311211347579956,
+    "val_accuracy": 0.06466666609048843,
+    "loss": 2.369312286376953,
+    "epoch": 0,
+    "accuracy": 0.07400000095367432,
+}
+
+print(data)
 
 
 def test_firebase_write(data):
@@ -160,6 +171,6 @@ def test_firebase_write(data):
 test_assert_len_acc(epochs, log_history)
 test_assert_len_loss(epochs, log_history)
 test_batch_bool(log_history)
-test_firebase_write(data=data)
+test_firebase_write(data=data2)
 
 assert_array_almost_equal(y_test, np.array(predictions_list, dtype="uint8"))
