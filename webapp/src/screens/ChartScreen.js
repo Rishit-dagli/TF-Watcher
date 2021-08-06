@@ -6,8 +6,9 @@ import { VStack, Text } from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
-import LineChartComponent from '../components/LineChartComponent';
+
 import LoadingSpinner from '../components/LoadingSpinner';
+import ChartsContainer from '../components/ChartsContainer';
 
 const ChartScreen = () => {
   const { id } = useParams();
@@ -58,8 +59,8 @@ const ChartScreen = () => {
         <Redirect to="/" />
       ) : (
         <VStack>
-          <Text fontSize="3xl">Chart screen</Text>
-          <LineChartComponent logs={logs} />
+          <Text fontSize="2xl" marginTop="4" fontWeight="semibold" color="gray.600">Real-time logs</Text>
+          <ChartsContainer data={logs} />
         </VStack>
       )}
     </>
