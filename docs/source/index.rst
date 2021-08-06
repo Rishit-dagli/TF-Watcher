@@ -14,7 +14,15 @@ Welcome to TF Watcher's documentation!
 
 TF Watcher is a simple to use Python package and web app which allows you to monitor 
 your model training or testing process on mobile devices built specially for Google 
-Colab and Kaggle.
+Colab, Azure ML and Kaggle.
+
+Quick Links
+------------
+
+* Source: `GitHub <https://github.com/Rishit-dagli/TF-Watcher>`_
+* `Web App <TODO>`_
+* `Issue Tracker <https://github.com/Rishit-dagli/TF-Watcher/issues>`_
+* `Mailing List <https://groups.google.com/g/tf-watcher>`_
 
 .. toctree::
    :maxdepth: 4
