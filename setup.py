@@ -1,6 +1,6 @@
 import os.path
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 
 def read(rel_path: str) -> str:
@@ -27,7 +27,7 @@ setup(
     name="tf-watcher",
     version=get_version("tfwatcher/version.py"),
     description="Monitor your TensorFlow model training on mobile devices, especially for Google Colab",
-    packages=["tfwatcher", find_packages()],
+    packages=["tfwatcher"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
