@@ -135,7 +135,7 @@ class EpochEnd(tf.keras.callbacks.Callback):
             or (self.is_list and ((epoch + 1) in self.schedule))
         ) or (epoch == 0):
             data = logs
-            data["epoch"] = epoch
+            data["epoch"] = epoch + 1
             data["batch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
 

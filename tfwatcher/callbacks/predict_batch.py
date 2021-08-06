@@ -134,7 +134,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         ) or (batch == 0):
 
             data = {
-                "batch": batch,
+                "batch": batch + 1,
                 "epoch": False,
                 "avg_time": round(mean(self.times), self.round_time),
             }

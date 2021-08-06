@@ -139,7 +139,7 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
         ) or (batch == 0):
 
             data = logs
-            data["batch"] = batch
+            data["batch"] = batch + 1
             data["epoch"] = False
             data["avg_time"] = round(mean(self.times), self.round_time)
 
