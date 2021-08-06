@@ -10,18 +10,14 @@ from numpy.testing import (
     assert_array_equal,
 )
 from numpy.testing._private.utils import assert_almost_equal
+
 from tfwatcher.callbacks.epoch import EpochEnd
 from tfwatcher.callbacks.predict import PredictEnd
 from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import (
-    random_char,
-    write_in_callback,
-    write_to_firebase,
-)
-
+from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
@@ -83,6 +79,7 @@ predictions_list = []
 for i in predictions:
     predictions_list.append(np.argmax(i))
 
+
 def test_assert_len_acc(epochs, log_history):
 
     len_acc = len(log_history["accuracy"])
@@ -102,6 +99,7 @@ def test_batch_bool(log_history):
 
     assert bool_val[0] == False
 
+
 data = {
     "val_loss": 2.311211347579956,
     "val_accuracy": 0.06466666609048843,
@@ -110,12 +108,13 @@ data = {
     "accuracy": 0.07400000095367432,
 }
 
+
 def test_firebase_write(data):
     ref_id = random_char(7)
 
     # Firebase API shoulld return in an error
     write_to_firebase(data=data, ref_id=ref_id, level="epoch")
-    
+
     assert len(ref_id) == 7
 
 
