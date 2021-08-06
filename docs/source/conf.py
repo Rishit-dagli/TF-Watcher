@@ -34,6 +34,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     "sphinx.ext.coverage",
+    "sphinx.ext.imgconverter",
 ]
 
 # Show doc coverage stats
