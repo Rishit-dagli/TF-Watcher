@@ -31,9 +31,10 @@ const HomeScreen = () => {
         title: 'Error',
         description: 'Could not find a active process with that key!',
         status: 'error',
-        duration: 8000,
+        duration: 2000,
         isClosable: true,
       });
+      setErr(false);
     }
   }, [err]);
 
@@ -66,7 +67,7 @@ const HomeScreen = () => {
           <HStack>
             <Input
               placeholder="Enter key"
-              onChange={(e) => setKey(e.target.value)}
+              onChange={(e) => setKey(e.target.value.trim())}
               maxW="md"
               variant="outline"
               boxShadow="md"
