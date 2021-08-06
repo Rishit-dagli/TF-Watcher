@@ -10,14 +10,18 @@ from numpy.testing import (
     assert_array_equal,
 )
 from numpy.testing._private.utils import assert_almost_equal
-
 from tfwatcher.callbacks.epoch import EpochEnd
 from tfwatcher.callbacks.predict import PredictEnd
 from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
+from tfwatcher.firebase_helpers import (
+    random_char,
+    write_in_callback,
+    write_to_firebase,
+)
+
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
@@ -77,8 +81,6 @@ loss_val, acc_val = model.evaluate(
 )
 
 
-print(loss_val)
-print(acc_val)
 
 
 predictions = model.predict(
