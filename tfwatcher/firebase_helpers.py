@@ -8,8 +8,8 @@ from .firebase_config import get_firebase_config
 
 def write_to_firebase(data: dict, ref_id: str, level: str):
     """Writes data to Firebase Realtime Database using
-    `Pyrebase <https://github.com/thisbejim/Pyrebase>`_ , a simple Python wrapper 
-    around the Firebase API. This automatically fetches the Firebase Config from 
+    `Pyrebase <https://github.com/thisbejim/Pyrebase>`_ , a simple Python wrapper
+    around the Firebase API. This automatically fetches the Firebase Config from
     :func:`firebase_config.get_firebase_config` .
 
     :param data: A dictionary of the logging metrics, epoch number and average time
@@ -41,8 +41,8 @@ def write_in_callback(data: dict, ref_id: str):
     write data to Firebase in between callbacks (eg. the :class:`EpochEnd` class).
 
     .. note::
-        This function is specially made to directly use in :obj:`callbacks` and does not 
-        require using ``level`` argument which is automatically calculated for callback 
+        This function is specially made to directly use in :obj:`callbacks` and does not
+        require using ``level`` argument which is automatically calculated for callback
         classes.
 
     :param data: A dictionary of the logging metrics, epoch number and average time
