@@ -16,7 +16,6 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
     granular control for each batch in ``predict`` methods.
 
     Example:
-    =========
 
     .. code-block:: python
         :caption: Logging data after every batch in predict methods

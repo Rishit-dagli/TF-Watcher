@@ -16,7 +16,6 @@ class EpochEnd(tf.keras.callbacks.Callback):
     granular control for each epoch.
 
     Example:
-    =========
 
     .. code-block:: python
         :caption: Logging data after every epoch
