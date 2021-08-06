@@ -18,11 +18,11 @@ const BarChartComponent = (data) => {
             <XAxis
               dataKey={xaxis}
               label={{
-                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 14,
+                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 15,
               }}
             />
             <YAxis label={{
-              value: 'AVG TIME', angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 14,
+              value: 'AVG TIME', angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 15,
             }}
             />
             <Tooltip />

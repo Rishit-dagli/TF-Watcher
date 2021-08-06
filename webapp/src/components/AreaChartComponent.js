@@ -18,7 +18,7 @@ const AreaChartComponent = (data) => {
   return (
     <Container maxWidth="container.lg">
       <div style={{
-        width: '100%', height: 380, marginBottom: 40,
+        width: '100%', height: 380, marginBottom: 40, marginTop: 10,
       }}
       >
         <ResponsiveContainer>
@@ -45,11 +45,11 @@ const AreaChartComponent = (data) => {
             <XAxis
               dataKey={xaxis}
               label={{
-                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 14,
+                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 15,
               }}
             />
             <YAxis label={{
-              value: 'VALUES', angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 14,
+              value: `${lineA.toUpperCase()} VALUE`, angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 15,
             }}
             />
             <Tooltip />
