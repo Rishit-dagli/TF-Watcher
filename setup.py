@@ -50,7 +50,10 @@ setup(
     url="https://github.com/Rishit-dagli/TF-Watcher/",
     author="Rishit Dagli",
     author_email="rishit.dagli@gmail.com",
-    install_requires=["tensorflow ~= 2.5.0", "pyrebase4 ~= 4.5.0",],
+    install_requires=[
+        "tensorflow ~= 2.5.0",
+        "pyrebase4 ~= 4.5.0",
+    ],
     extras_require={
         "dev": [
             "check-manifest",
