@@ -10,7 +10,7 @@ const App = () => (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path="/logs" component={ChartScreen} />
+        <Route path="/logs/:id" component={ChartScreen} />
         <Route exact path="/" component={HomeScreen} />
       </Switch>
     </BrowserRouter>

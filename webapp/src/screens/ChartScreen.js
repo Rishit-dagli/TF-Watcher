@@ -1,7 +1,7 @@
 import React, {
   useContext, useState, useEffect,
 } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import {
   VStack, Text,
 } from '@chakra-ui/react';
@@ -11,11 +11,12 @@ import { db } from '../firebase/Firebase';
 import LineChartComponent from '../components/LineChartComponent';
 
 const ChartScreen = () => {
+  const { id } = useParams();
   const { user, loading } = useContext(UserContext);
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    db.ref('jGNGTBd').on('value', (snapshot) => {
+    db.ref(id).on('value', (snapshot) => {
       const getAllData = [];
       snapshot.forEach((snap) => {
         getAllData.push(snap.val());
