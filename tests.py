@@ -10,22 +10,24 @@ from numpy.testing import (
     assert_array_equal,
 )
 from numpy.testing._private.utils import assert_almost_equal
-
+from tensorflow.keras.layers import Dense, Flatten
+from tensorflow.keras.models import Sequential
 from tfwatcher.callbacks.epoch import EpochEnd
 from tfwatcher.callbacks.predict import PredictEnd
 from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
+from tfwatcher.firebase_helpers import (
+    random_char,
+    write_in_callback,
+    write_to_firebase,
+)
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
 
 X_train, y_train = X_train_full[:15000] / 255.0, y_train_full[:15000]
-
-from tensorflow.keras.layers import Dense, Flatten
-from tensorflow.keras.models import Sequential
 
 
 def make_model():
@@ -114,6 +116,18 @@ def test_firebase_write(data):
 
     # Firebase API shoulld return in an error
     write_to_firebase(data=data, ref_id=ref_id, level="epoch")
+
+    # Delete from Firebase after this is tested
+    config = {
+        "apiKey": "AIzaSyAfCOOzFtKxTa-_pS3lO6URRGR8sVjK7sk",
+        "authDomain": "tf-watcher.firebaseapp.com",
+        "databaseURL": "https://tf-watcher-default-rtdb.firebaseio.com",
+        "projectId": "tf-watcher",
+        "storageBucket": "tf-watcher.appspot.com",
+    }
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    db.child(ref_id).remove()
 
     assert len(ref_id) == 7
 
