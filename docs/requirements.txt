@@ -1,2 +1,2 @@
-tensorflow == 2.5.0
 pyrebase == 3.0.27
+tensorflow
