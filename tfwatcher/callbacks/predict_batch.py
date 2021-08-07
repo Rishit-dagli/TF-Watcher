@@ -10,7 +10,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
     """This class is a subclass of the `tf.keras.callbacks.Callback <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback>`_
     abstract base class and overrides the methods :func:`on_predict_batch_begin` and :func:`on_predict_batch_end`
     allowing loging after batches in ``predict`` method. This class also uses the
-    :mod:`..firebase_helpers` to send data to Firebase Realtime database and also
+    :mod:`.firebase_helpers` to send data to Firebase Realtime database and also
     creates a 7 character unique string where the data is pushed on Firebase. Logging
     to Firebase is also controllable by ``schedule`` argument, even providing a
     granular control for each batch in ``predict`` methods.
@@ -111,7 +111,7 @@ class PredictBatchEnd(tf.keras.callbacks.Callback):
         """Overrides the `tf.keras.callbacks.Callback.on_predict_batch_end <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_predict_batch_end>`_
         method which is called called at the end of a batch in predict methods. This
         method adds the batch number, the average time taken and pushes it to Firebase
-        using the :mod:`..firebase_helpers` module.
+        using the :mod:`.firebase_helpers` module.
 
         :param epoch: Index of batch within the current epoch
         :type epoch: int
