@@ -12,7 +12,7 @@ class PredictEnd(tf.keras.callbacks.Callback):
 
     .. note::
         This class does not have the ``schedule`` parameter like other clases in the
-        ``tfwatcher.callbacks`` subpackage since this would notify you once the 
+        ``tfwatcher.callbacks`` subpackage since this would notify you once the
         prediction is over and there are no batches or epochs to make a schedule for.
 
     Example:
