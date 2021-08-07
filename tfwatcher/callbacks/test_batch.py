@@ -11,7 +11,7 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
     abstract base class and overrides the methods :func:`on_test_batch_begin` and :func:`on_test_batch_end`
     allowing loging after batches in ``evaluate`` methods and at the beginning of a
     validation batch in the fit methods, if validation data is provided. This class
-    also uses the :mod:`..firebase_helpers` to send data to Firebase Realtime database
+    also uses the :mod:`.firebase_helpers` to send data to Firebase Realtime database
     and also creates a 7 character unique string where the data is pushed on Firebase.
     Logging to Firebase is also controllable by ``schedule`` argument, even providing a
     granular control for each batch in ``evaluate`` methods.
@@ -116,7 +116,7 @@ class TestBatchEnd(tf.keras.callbacks.Callback):
         method which is called called at the end of a batch in evaluate
         methods and at the beginning of a validation batch in the fit methods, if
         validation data is provided. This method adds the batch number, the average
-        time taken and pushes it to Firebase using the :mod:`..firebase_helpers` module.
+        time taken and pushes it to Firebase using the :mod:`.firebase_helpers` module.
 
         :param epoch: Index of batch within the current epoch
         :type epoch: int

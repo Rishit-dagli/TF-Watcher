@@ -1,12 +1,12 @@
 name: Build Docs
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    
     - name: Free space in hosted agent
       run: |
           sudo rm -rf "/usr/local/share/boost"
@@ -26,12 +26,14 @@ jobs:
 
     # Create an artifact of the html output.
     - uses: actions/upload-artifact@v2
+      if: "contains(github.event.head_commit.message, 'save artifact')"
       with:
         name: DocumentationHTML
         path: docs/build/html/
 
     # Create an artifact out of the previously built pdf.
     - uses: actions/upload-artifact@v2
+      if: "contains(github.event.head_commit.message, 'save artifact')"
       with:
         name: Documentation
         path: docs/build/latex/tfwatcher.pdf
