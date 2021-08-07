@@ -7,8 +7,13 @@ class PredictEnd(tf.keras.callbacks.Callback):
     """This class is a subclass of the `tf.keras.callbacks.Callback <https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback>`_
     abstract base class and overrides the methods :func:`on_predict_begin` and :func:`on_predict_end`
     allowing loging after ``predict`` method is run. This class also uses the
-    :mod:`..firebase_helpers` to send data to Firebase Realtime database and also
+    :mod:`.firebase_helpers` module to send data to Firebase Realtime database and also
     creates a 7 character unique string where the data is pushed on Firebase.
+
+    .. note::
+        This class does not have the ``schedule`` parameter like other clases in the
+        ``tfwatcher.callbacks`` subpackage since this would notify you once the 
+        prediction is over and there are no batches or epochs to make a schedule for.
 
     Example:
 
