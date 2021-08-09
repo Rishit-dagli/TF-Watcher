@@ -1,3 +1,4 @@
-pyrebase4
-tensorflow
-sphinx_rtd_theme
+pyrebase4==4.5.0
+tensorflow==2.5.0
+sphinx-rtd-dark-mode==1.2.3
+sphinx-rtd-theme==0.5.2
