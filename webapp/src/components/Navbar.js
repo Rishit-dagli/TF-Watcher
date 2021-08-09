@@ -1,11 +1,12 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
-  Text, Button, Flex, useToast,
+  Text, Button, Flex, useToast, Image, HStack,
 } from '@chakra-ui/react';
 
 import { logOut, signInWithGoogle } from '../firebase/Firebase';
 import { UserContext } from '../providers/AuthProvider';
+import logo from '../assets/tf-watcher.png';
 
 const Navbar = () => {
   const history = useHistory();
@@ -42,14 +43,28 @@ const Navbar = () => {
   }, [err]);
 
   return (
-    <Flex bgColor="teal.50" alignItems="center" paddingY="4" paddingX={{ base: '8', md: '20', lg: '28' }} marginBottom="5" boxShadow="lg">
-      <Text flexGrow="1" fontSize="large" fontWeight="bold">TF Watcher</Text>
+    <Flex
+      bgColor="gray.800"
+      alignItems="center"
+      paddingY="3"
+      paddingX={{ base: '8', md: '20', lg: '28' }}
+      position="fixed"
+      width="100%"
+      top="0"
+      zIndex="10"
+      opacity="0.9"
+    >
+      <Link to="/" style={{ flexGrow: 1 }}>
+        <HStack>
+          <Image src={logo} boxSize={{ base: 8, md: 10 }} bgSize="contain" />
+          <Text fontWeight="bold" color="white" display={{ base: 'none', md: 'block' }}>TF Watcher</Text>
+        </HStack>
+      </Link>
       <Button
         size="sm"
         colorScheme="teal"
-        fontWeight="bold"
-        paddingX="5"
-        variant="link"
+        paddingX="6"
+        paddingY="2"
         onClick={loginStatus ? logout : login}
       >
         {loginStatus ? 'Logout' : 'Login'}
