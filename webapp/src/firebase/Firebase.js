@@ -23,6 +23,10 @@ export const signInWithGoogle = async () => {
   return true;
 };
 
+export const redirectWithGoogle = () => {
+  auth.signInWithRedirect(googleProvider);
+};
+
 export const logOut = async () => {
   try {
     await auth.signOut();

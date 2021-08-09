@@ -1,11 +1,11 @@
 import React, {
   useContext, useState, useEffect,
 } from 'react';
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { VStack, Text } from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
-import { db } from '../firebase/Firebase';
+import { db, redirectWithGoogle } from '../firebase/Firebase';
 
 import LoadingSpinner from '../components/LoadingSpinner';
 import ChartsContainer from '../components/ChartsContainer';
@@ -16,6 +16,14 @@ const ChartScreen = () => {
   const { user, loading } = useContext(UserContext);
   const [logs, setLogs] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
+
+  const login = () => {
+    redirectWithGoogle();
+  };
+
+  useEffect(() => {
+    if (!loading && !user) login();
+  }, [user, loading]);
 
   useEffect(() => {
     const rootRef = db.ref();
@@ -54,16 +62,10 @@ const ChartScreen = () => {
   }
 
   return (
-    <>
-      { !loading && !user ? (
-        <Redirect to="/" />
-      ) : (
-        <VStack>
-          <Text fontSize="2xl" marginTop="4" fontWeight="semibold" color="gray.600">Real-time logs</Text>
-          <ChartsContainer data={logs} />
-        </VStack>
-      )}
-    </>
+    <VStack>
+      <Text fontSize="2xl" marginTop="4" fontWeight="semibold" color="gray.600">Real-time logs</Text>
+      <ChartsContainer data={logs} />
+    </VStack>
   );
 };
 
