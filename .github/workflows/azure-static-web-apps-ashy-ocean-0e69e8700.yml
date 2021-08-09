@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./webapp
+        working-directory: webapp
         
     name: Build and Deploy Job
     steps:
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./webapp
+        working-directory: webapp
     name: Close Pull Request Job
     steps:
       - name: Close Pull Request
