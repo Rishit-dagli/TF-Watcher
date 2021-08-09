@@ -2,7 +2,9 @@ import React, {
   useContext, useState, useEffect,
 } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
-import { VStack, Text } from '@chakra-ui/react';
+import {
+  VStack, Text, Button, Flex,
+} from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
@@ -58,8 +60,18 @@ const ChartScreen = () => {
       { !loading && !user ? (
         <Redirect to="/" />
       ) : (
-        <VStack>
-          <Text fontSize="2xl" marginTop="4" fontWeight="semibold" color="gray.600">Real-time logs</Text>
+        <VStack bgColor="gray.800">
+          <Flex
+            justify="space-between"
+            flexDir="row"
+            align="center"
+            width={{
+              base: 'xs', sm: 'sm', md: '2xl', xl: '6xl',
+            }}
+          >
+            <Text fontSize="xl" marginTop="4" fontWeight="semibold" color="gray.300">Real-time logs</Text>
+            <Button colorScheme="gray" color="purple.400" paddingX="8" variant="outline">Share link</Button>
+          </Flex>
           <ChartsContainer data={logs} />
         </VStack>
       )}

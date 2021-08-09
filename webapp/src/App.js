@@ -13,7 +13,7 @@ const App = () => (
   <UserProvider>
     <BrowserRouter>
       <Navbar />
-      <Box paddingTop="24" bgColor="gray.800">
+      <Box paddingTop="24" bgColor="gray.800" height="100vh">
         <Switch>
           <Route path="/logs/:id" component={ChartScreen} />
           <Route exact path="/" component={HomeScreen} />

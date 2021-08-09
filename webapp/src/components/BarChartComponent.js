@@ -4,29 +4,32 @@ import {
   BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer,
 } from 'recharts';
 
-const BarChartComponent = (data) => {
+export const HorizontalBarChartComponent = (data) => {
   const { logs, xaxis } = data;
   return (
-    <Container maxWidth="container.lg" marginTop="20">
+    <Container maxW="4xl" bgColor="gray.700" borderRadius="2xl" boxShadow="2xl" paddingTop="10">
       <div style={{
-        width: '80%', height: 280, marginBottom: 40, paddingLeft: 40,
+        width: '98%', height: 350, marginBottom: 10,
       }}
       >
-        <ResponsiveContainer>
-          <BarChart data={logs} margin={{ bottom: 20 }}>
-            <CartesianGrid strokeDasharray="3 3" />
+        <ResponsiveContainer minWidth={200}>
+          <BarChart data={logs} margin={{ bottom: 20, left: -2 }}>
+            <CartesianGrid strokeDasharray="3 3" opacity="0.7" />
             <XAxis
               dataKey={xaxis}
               label={{
-                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 15,
+                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#fff', fontSize: 15,
               }}
+              tick={{ stroke: '#CBD5E0', fontSize: 11 }}
             />
-            <YAxis label={{
-              value: 'AVG TIME', angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 15,
-            }}
+            <YAxis
+              label={{
+                value: 'AVG TIME', angle: -90, position: 'insideLeft', fill: '#fff', fontSize: 15, offset: 15,
+              }}
+              tick={{ stroke: '#CBD5E0', fontSize: 11 }}
             />
-            <Tooltip />
-            <Bar dataKey="avg_time" fill="#b794f4" />
+            <Tooltip contentStyle={{ backgroundColor: '#4A5568', color: '#fff' }} />
+            <Bar dataKey="avg_time" fill="#B794F4" stroke="#D6BCFA" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -34,4 +37,37 @@ const BarChartComponent = (data) => {
   );
 };
 
-export default BarChartComponent;
+export const VerticalBarChartComponent = (data) => {
+  const { logs, xaxis } = data;
+  return (
+    <Container maxW="xs" bgColor="gray.700" borderRadius="2xl" boxShadow="2xl" paddingTop="10">
+      <div style={{
+        width: '98%', height: 780, marginBottom: 10,
+      }}
+      >
+        <ResponsiveContainer minWidth={200}>
+          <BarChart data={logs} margin={{ bottom: 20, left: -2 }} layout="vertical">
+            <CartesianGrid strokeDasharray="3 3" />
+            <YAxis
+              dataKey={xaxis}
+              label={{
+                value: xaxis.toUpperCase(), angle: -90, position: 'insideLeft', fill: '#fff', fontSize: 15, offset: 15,
+              }}
+              type="category"
+              tick={{ stroke: '#CBD5E0', fontSize: 11 }}
+            />
+            <XAxis
+              label={{
+                value: 'AVG_TIME', position: 'insideBottom', offset: -12, fill: '#fff', fontSize: 15,
+              }}
+              type="number"
+              tick={{ stroke: '#CBD5E0', fontSize: 11 }}
+            />
+            <Tooltip contentStyle={{ backgroundColor: '#4A5568', color: '#fff' }} />
+            <Bar dataKey="avg_time" fill="#B794F4" stroke="#D6BCFA" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </Container>
+  );
+};
