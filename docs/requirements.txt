@@ -3,3 +3,4 @@ pyrebase4
 tensorflow
 sphinx-rtd-theme
 sphinx-rtd-dark-mode
+sphinxemoji
