@@ -12,9 +12,19 @@ Welcome to TF Watcher's documentation!
 .. image:: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTF-Watcher.svg
    :target: https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTF-Watcher
 
-TF Watcher is a simple to use Python package and web app which allows you to monitor 
-your model training or testing process on mobile devices built specially for Google 
-Colab, Azure ML and Kaggle.
+.. only:: not latex
+
+   **TF Watcher** is a simple to use Python package and web app which allows you to 
+   monitor |:eyes:| your Machine Learning training or testing process on mobile devices 
+   |:mobile_phone:| built specially for Google Colab, Azure ML and Kaggle. Dedicated to 
+   all ML Developers with |:heart:|. 
+
+.. only:: latex 
+
+   **TF Watcher** is a simple to use Python package and web app which allows you to 
+   monitor your Machine Learning training or testing process on mobile devices built 
+   specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers 
+   with love. 
 
 Quick Links
 ------------

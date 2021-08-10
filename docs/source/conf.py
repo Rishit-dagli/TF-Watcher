@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.imgconverter",
     "sphinx_rtd_dark_mode",
+    "sphinxemoji.sphinxemoji",
 ]
 
 # user starts in light mode
