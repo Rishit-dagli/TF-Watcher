@@ -41,6 +41,7 @@ Quick Links
    introduction
    installation
    tfwatcher
+   authors
 
 Indices and tables
 ==================
