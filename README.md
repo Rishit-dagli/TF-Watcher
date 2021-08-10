@@ -30,7 +30,7 @@ Navigate to [`/tfwatcher`](/tfwatcher) directory to browse and know more about t
 
 ### 🔹 [TF Watcher Web App](/webapp)
 
-This is an Android application which uses *Noty REST API*. It has application UI implementation using traditional *Android's Navigation Architecture* as well as modern *Jetpack 🚀 Compose UI*.  
+This is a *Web Application* built using React, Chakra-UI, Recharts and Firebase deployed on Azure Static Web Apps. It reads from the Firebase realtime database and displays the logs using charts.
 Navigate to [`/webapp`](/webapp) directory to browse and know more about TF Watcher Web App.
 
 ## Want to Contribute 🙋‍♂️?
