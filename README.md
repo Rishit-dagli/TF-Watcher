@@ -11,3 +11,5 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/Rishit-dagli/TF-Watcher?style=social)](https://github.com/Rishit-dagli/TF-Watcher/watchers)
 
 <!-- TODO: Create Zenodo badge -->
+
+**TF Watcher** is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers with ❤️. 
