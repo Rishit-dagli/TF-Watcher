@@ -51,7 +51,7 @@ export const VerticalBarChartComponent = (data) => {
             <YAxis
               dataKey={xaxis}
               label={{
-                value: xaxis.toUpperCase(), angle: -90, position: 'insideLeft', fill: '#fff', fontSize: 15, offset: 15,
+                value: xaxis.toUpperCase(), angle: 90, position: 'insideLeft', fill: '#fff', fontSize: 15, offset: 15,
               }}
               type="category"
               tick={{ stroke: '#CBD5E0', fontSize: 11 }}

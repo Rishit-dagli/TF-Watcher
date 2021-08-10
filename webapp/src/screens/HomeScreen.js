@@ -1,25 +1,24 @@
 import React, { useState, useContext, useEffect } from 'react';
 import {
-  Button, VStack, Text, Input, HStack, useToast,
+  useToast, Container,
 } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
+
 import { UserContext } from '../providers/AuthProvider';
 import { db } from '../firebase/Firebase';
 import LoadingSpinner from '../components/LoadingSpinner';
+import HeroContainer from '../components/HeroContainer';
+import FeaturesContainer from '../components/FeaturesContainer';
+import Footer from '../components/Footer';
+import TextContainer from '../components/TextContainer';
 
 const HomeScreen = () => {
   const history = useHistory();
-  const { user, loading } = useContext(UserContext);
+  const { loading } = useContext(UserContext);
   const [pageLoading, setPageLoading] = useState(true);
-  const [loginStatus, setLoginStatus] = useState(false);
-  const [key, setKey] = useState('');
   const [searchLoading, setSearchLoading] = useState(false);
   const [err, setErr] = useState(false);
   const toast = useToast();
-
-  useEffect(() => {
-    if (user) setLoginStatus(true);
-  }, [user]);
 
   useEffect(() => {
     if (!loading) setPageLoading(false);
@@ -38,7 +37,7 @@ const HomeScreen = () => {
     }
   }, [err]);
 
-  const searchId = () => {
+  const searchId = (key) => {
     setSearchLoading(true);
     const rootRef = db.ref();
     let flag = 0;
@@ -46,7 +45,6 @@ const HomeScreen = () => {
       snapshot.forEach((child) => {
         if (child.key === key) {
           flag = 1;
-          return;
         }
         setSearchLoading(false);
       });
@@ -60,32 +58,20 @@ const HomeScreen = () => {
   }
 
   return (
-    <VStack>
-      { !loginStatus
-        ? <Text fontSize="2xl">Login to get started!</Text>
-        : (
-          <HStack>
-            <Input
-              placeholder="Enter key"
-              onChange={(e) => setKey(e.target.value.trim())}
-              maxW="md"
-              variant="outline"
-              boxShadow="md"
-              onKeyPress={(e) => (e.key === 'Enter' ? searchId() : null)}
-              disabled={searchLoading}
-            />
-            <Button
-              onClick={searchId}
-              colorScheme="teal"
-              paddingX="10"
-              boxShadow="lg"
-              isLoading={searchLoading}
-            >
-              View logs
-            </Button>
-          </HStack>
-        )}
-    </VStack>
+    <Container
+      w="100%"
+      maxW="100vw"
+      paddingInlineEnd="0"
+      paddingInlineStart="0"
+      bgColor="teal.500"
+      color="white"
+      minH="100vh"
+    >
+      <HeroContainer searchId={searchId} searchLoading={searchLoading} />
+      <TextContainer />
+      <FeaturesContainer />
+      <Footer />
+    </Container>
   );
 };
 
