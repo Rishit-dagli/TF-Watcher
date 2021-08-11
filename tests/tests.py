@@ -15,8 +15,7 @@ from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import (random_char, write_in_callback,
-                                        write_to_firebase)
+from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
@@ -82,14 +81,6 @@ predictions = model.predict(
     ],
     batch_size=2000,
 )
-predictions_list = []
-
-for i in predictions:
-    predictions_list.append(np.argmax(i))
-
-
-print("BreakPoint : ", predictions_list)
-print(len(predictions_list), len(y_test))
 
 data = {
     "val_loss": 2.311211347579956,
