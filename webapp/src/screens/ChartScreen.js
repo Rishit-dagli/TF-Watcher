@@ -77,7 +77,7 @@ const ChartScreen = () => {
 
   const shareLink = () => {
     setCopyStatus(true);
-    navigator.clipboard.writeText(`https://ashy-ocean-0e69e8700-77.eastasia.azurestaticapps.net/logs/${id}`)
+    navigator.clipboard.writeText(`https://www.tfwatcher.tech/logs/${id}`)
       .then(() => setCopyStatus(false));
   };
 
