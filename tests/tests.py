@@ -8,14 +8,14 @@ from numpy.testing import assert_array_compare, assert_array_equal
 from numpy.testing._private.utils import assert_almost_equal
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Sequential
-
 from tfwatcher.callbacks.epoch import EpochEnd
 from tfwatcher.callbacks.predict import PredictEnd
 from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import (
+
+from tfwatcher.firebase_helpers import (  # isort:skip
     get_firebase_config,
     random_char,
     write_in_callback,
