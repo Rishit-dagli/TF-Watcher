@@ -6,6 +6,7 @@
 # TF Watcher (Python Package)
 
 [![Upload Python Package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml)
+[![Test Python package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml)
 
 _**TF Watcher Python Package**_ is built with TensorFlow and Pyrebase (a python wrapper for the Firebase🔥 API). 
 Aim of this project is to create new TensorFlow callbacks to easily log the data and write it to Firebase realtime database. 
@@ -29,7 +30,7 @@ This command also installs any other required dependencies if they are not insta
 - [x] Easy structure
 - [x] Support easily logging training, validation or testing metrics
 - [x] Write data to Firebase realtime database
-- [ ] Tests (WIP)
+- [x] Tests
 
 ## About this project 💡
 
