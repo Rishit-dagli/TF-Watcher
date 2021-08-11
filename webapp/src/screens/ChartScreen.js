@@ -1,10 +1,11 @@
 import React, {
   useContext, useState, useEffect,
 } from 'react';
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {
-  VStack, Text, Button, Flex, Container,
+  VStack, Text, Button, Flex, Container, useToast,
 } from '@chakra-ui/react';
+import { FaShareAlt } from 'react-icons/fa';
 
 import { UserContext } from '../providers/AuthProvider';
 import { db, redirectWithGoogle } from '../firebase/Firebase';
@@ -19,6 +20,8 @@ const ChartScreen = () => {
   const { user, loading } = useContext(UserContext);
   const [logs, setLogs] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
+  const [copyStatus, setCopyStatus] = useState(false);
+  const toast = useToast();
 
   const login = () => {
     redirectWithGoogle();
@@ -60,40 +63,61 @@ const ChartScreen = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (copyStatus) {
+      toast({
+        title: 'Success',
+        description: 'Link copied to clipboard',
+        status: 'success',
+        duration: 1000,
+        isClosable: true,
+      });
+    }
+  }, [copyStatus]);
+
+  const shareLink = () => {
+    setCopyStatus(true);
+    navigator.clipboard.writeText(`http://localhost:3000/logs/${id}`)
+      .then(() => setCopyStatus(false));
+  };
+
   if (pageLoading) {
     return <LoadingSpinner />;
   }
 
   return (
-    <>
-      { !loading && !user ? (
-        <Redirect to="/" />
-      ) : (
-        <VStack bgColor="gray.800">
-          <Flex
-            justify="space-between"
-            flexDir="row"
-            align="center"
-            width={{
-              base: 'xs', sm: 'sm', md: '2xl', xl: '6xl',
-            }}
-          >
-            <Text fontSize="xl" marginTop="4" fontWeight="semibold" color="gray.300">Real-time logs</Text>
-            <Button colorScheme="gray" color="purple.400" paddingX="8" variant="outline">Share link</Button>
-          </Flex>
-          <ChartsContainer data={logs} />
-          <Container
-            w="100%"
-            maxW="100vw"
-            paddingInlineEnd="0"
-            paddingInlineStart="0"
-            color="white"
-          >
-            <Footer />
-          </Container>
-        </VStack>
-      )}
-    </>
+    <VStack bgColor="gray.800">
+      <Flex
+        justify="space-between"
+        flexDir="row"
+        align="center"
+        width={{
+          base: 'xs', sm: 'sm', md: '2xl', xl: '6xl',
+        }}
+      >
+        <Text fontSize="xl" marginTop="4" fontWeight="semibold" color="gray.300">Real-time logs</Text>
+        <Button
+          colorScheme="whiteAlpha"
+          color="purple.200"
+          paddingX="8"
+          variant="outline"
+          onClick={shareLink}
+          leftIcon={<FaShareAlt />}
+        >
+          Share link
+        </Button>
+      </Flex>
+      <ChartsContainer data={logs} />
+      <Container
+        w="100%"
+        maxW="100vw"
+        paddingInlineEnd="0"
+        paddingInlineStart="0"
+        color="white"
+      >
+        <Footer />
+      </Container>
+    </VStack>
   );
 };
 
