@@ -8,8 +8,7 @@ _**TF Watcher Webapp**_ is built with React, Chakra-UI and Firebase SDK.
 The main aim of this application is to monitor ML training or testing process. It is connected with Firebase, to get
 real time updates and show graphs for the same.
 
-<!--- TODO: Fill out the website link -->
-[_**Visit the deployed website**_](TODO) to test it out.
+[_**Visit the deployed website**_](https://www.tfwatcher.tech/) to test it out.
 
 ## Features 👓
 
