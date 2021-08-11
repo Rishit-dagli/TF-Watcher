@@ -29,7 +29,7 @@ const ChartScreen = () => {
 
   useEffect(() => {
     if (!loading && !user) login();
-  }, []);
+  }, [loading, user]);
 
   useEffect(() => {
     const rootRef = db.ref();
