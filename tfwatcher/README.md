@@ -40,7 +40,7 @@ This project contains the following modules:
 - [**`callbacks`**](/callbacks): This subpackage contains modules to help log data in between your ML training, validation and testing processes with [_TensorFlow_](http://tensorflow.org/)
     - [**`callbacks.epoch`**](/callbacks/epoch.py): Logs and sends data to firebase after every epoch or after every n epochs or using a more granular control
     - [**`callbacks.predict_batch`**](/callbacks/predict_batch.py): Logs and sends data to firebase after every batch in predict method or after every n batches in predict method or using a more granular control
-    [**`callbacks.predict`**](/callbacks/predict.py): Logs and sends data to firebase after the predict method is run
+    - [**`callbacks.predict`**](/callbacks/predict.py): Logs and sends data to firebase after the predict method is run
     - [**`callbacks.test_batch`**](/callbacks/test_batch.py): Logs and sends data to firebase after every batch in evaluate method or after every n batches in evaluate method or using a more granular control
     - [**`callbacks.train_batch`**](/callbacks/train_batch.py): Logs and sends data to firebase after every training batch in fit method or after every n training batch in fit method or using a more granular control
 
