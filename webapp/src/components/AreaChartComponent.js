@@ -9,57 +9,59 @@ import {
   Legend,
   Area,
 } from 'recharts';
-import { Container } from '@chakra-ui/react';
+import { Flex, Text, Center } from '@chakra-ui/react';
 
 const AreaChartComponent = (data) => {
   const {
     xaxis, lineA, lineB, logs,
   } = data;
   return (
-    <Container maxWidth="container.lg">
+    <Flex maxW="4xl" bgColor="gray.700" borderRadius="2xl" boxShadow="2xl" marginBottom="5" flexDir="row" align="center">
+      <Center bgColor="teal.500" height="400" borderTopLeftRadius="2xl" borderBottomLeftRadius="2xl" width="7">
+        <Text
+          style={{ transform: 'rotate(-90deg)' }}
+          color="white"
+          marginY="0"
+          paddingY="0"
+        >
+          {lineA.toUpperCase()}
+        </Text>
+      </Center>
       <div style={{
-        width: '100%', height: 380, marginBottom: 40, marginTop: 10,
+        width: '89%', height: 350, marginBottom: 10,
       }}
       >
         <ResponsiveContainer>
           <AreaChart
             data={logs}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 30,
-              bottom: 15,
-            }}
+            margin={{ bottom: 20, left: -15 }}
           >
             <defs>
               <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#5ac49c" stopOpacity={1} />
-                <stop offset="95%" stopColor="#5ac49c" stopOpacity={0.2} />
+                <stop offset="15%" stopColor="#4FD1C5" stopOpacity={1} />
+                <stop offset="95%" stopColor="#319795" stopOpacity={0.8} />
               </linearGradient>
               <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8884d8" stopOpacity={1} />
-                <stop offset="95%" stopColor="#8884d8" stopOpacity={0.2} />
+                <stop offset="15%" stopColor="#9F7AEA" stopOpacity={1} />
+                <stop offset="95%" stopColor="#6B46C1" stopOpacity={0.8} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="3 3" color="white" opacity="0.7" />
             <XAxis
               dataKey={xaxis}
               label={{
-                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#0987A0', fontSize: 15,
+                value: xaxis.toUpperCase(), position: 'insideBottom', offset: -12, fill: '#EDF2F7', fontSize: 15,
               }}
+              tick={{ stroke: '#CBD5E0', fontSize: 11 }}
             />
-            <YAxis label={{
-              value: `${lineA.toUpperCase()} VALUE`, angle: -90, position: 'insideLeft', fill: '#0987A0', fontSize: 15,
-            }}
-            />
-            <Tooltip />
+            <YAxis tick={{ stroke: '#CBD5E0', fontSize: 11 }} />
+            <Tooltip contentStyle={{ backgroundColor: '#4A5568', color: '#fff' }} />
             <Legend
-              verticalAlign="middle"
-              layout="vertical"
-              align="right"
+              verticalAlign="top"
+              layout="horizontal"
+              align="center"
               wrapperStyle={{
-                paddingLeft: '20px',
-                width: '10rem',
+                paddingBottom: '20px',
               }}
               iconType="diamond"
               iconSize={14}
@@ -68,7 +70,7 @@ const AreaChartComponent = (data) => {
               type="monotone"
               dataKey={lineA}
               stackId="1"
-              stroke="#44b88b"
+              stroke="#81E6D9"
               fill="url(#green)"
             />
             {lineB
@@ -77,7 +79,7 @@ const AreaChartComponent = (data) => {
                   type="monotone"
                   dataKey={lineB}
                   stackId="1"
-                  stroke="#8884d8"
+                  stroke="#D6BCFA"
                   fill="url(#purple)"
                 />
               )
@@ -85,7 +87,7 @@ const AreaChartComponent = (data) => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-    </Container>
+    </Flex>
   );
 };
 

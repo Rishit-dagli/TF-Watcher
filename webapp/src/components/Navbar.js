@@ -1,11 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
-  Text, Button, Flex, useToast,
+  Text, Button, Flex, useToast, Image, HStack, VStack,
 } from '@chakra-ui/react';
+import GitHubButton from 'react-github-btn';
 
 import { logOut, signInWithGoogle } from '../firebase/Firebase';
 import { UserContext } from '../providers/AuthProvider';
+import logo from '../assets/tf-watcher.png';
 
 const Navbar = () => {
   const history = useHistory();
@@ -44,14 +46,41 @@ const Navbar = () => {
   }, [err]);
 
   return (
-    <Flex bgColor="teal.50" alignItems="center" paddingY="4" paddingX={{ base: '8', md: '20', lg: '28' }} marginBottom="5" boxShadow="lg">
-      <Text flexGrow="1" fontSize="large" fontWeight="bold">TF Watcher</Text>
+    <Flex
+      bgColor="gray.900"
+      align="center"
+      paddingY="3"
+      paddingX={{ base: '6', md: '20', lg: '28' }}
+      position="fixed"
+      width="100%"
+      top="0"
+      zIndex="10"
+      opacity="0.9"
+      justify="center"
+    >
+      <Link to="/" style={{ flexGrow: 1 }}>
+        <HStack>
+          <Image src={logo} boxSize={{ base: 7 }} bgSize="contain" />
+          <Text fontWeight="bold" color="white" display={{ base: 'none', md: 'block' }}>TF Watcher</Text>
+        </HStack>
+      </Link>
+      <VStack paddingTop="1.5">
+        <GitHubButton
+          href="https://github.com/Rishit-dagli/TF-Watcher"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star Rishit-dagli/TF-Watcher on GitHub"
+          id="star-btn"
+        >
+          Star
+        </GitHubButton>
+      </VStack>
       <Button
+        marginLeft="4"
         size="sm"
         colorScheme="teal"
-        fontWeight="bold"
-        paddingX="5"
-        variant="link"
+        paddingX="6"
+        paddingY="2"
         onClick={loginStatus ? logout : login}
       >
         {loginStatus ? 'Logout' : 'Login'}

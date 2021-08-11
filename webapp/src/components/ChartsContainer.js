@@ -1,3 +1,4 @@
+import { Flex, Box } from '@chakra-ui/react';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import getAllParams from '../helpers/getChartsDataFormat';
@@ -18,15 +19,49 @@ const ChartsContainer = (params) => {
   }
 
   return (
-    <>
-      {baseParam === 'epoch'
-        ? chartsParams.map(
-          (item) => <AreaChartComponent xaxis={baseParam} lineA={item} lineB={`val_${item}`} logs={data} key={item} />,
-        ) : chartsParams.map(
-          (item) => <AreaChartComponent xaxis={baseParam} lineA={item} logs={data} key={item} />,
-        )}
-      <BarChartComponent logs={data} xaxis={baseParam} />
-    </>
+    <Flex paddingY="5" flexDir={{ base: 'column', xl: 'row' }} align={{ base: 'center', xl: 'flex-start' }}>
+      <Flex
+        flexDir="column"
+        width={{
+          base: 'xs', sm: 'md', md: '2xl', lg: '4xl',
+        }}
+      >
+        {baseParam === 'epoch'
+          ? chartsParams.map(
+            (item) => (
+              <AreaChartComponent
+                xaxis={baseParam}
+                lineA={item}
+                lineB={`val_${item}`}
+                logs={data}
+                key={item}
+              />
+            ),
+          ) : chartsParams.map(
+            (item) => (
+              <AreaChartComponent
+                xaxis={baseParam}
+                lineA={item}
+                logs={data}
+                key={item}
+              />
+            ),
+          )}
+      </Flex>
+      <Flex paddingX="3">
+        <Box display={{ base: 'none', xl: 'block' }} width="xs">
+          <BarChartComponent logs={data} xaxis={baseParam} dir="v" />
+        </Box>
+        <Box
+          display={{ base: 'block', xl: 'none' }}
+          width={{
+            base: 'xs', sm: 'md', md: '2xl', lg: '4xl',
+          }}
+        >
+          <BarChartComponent logs={data} xaxis={baseParam} dir="h" />
+        </Box>
+      </Flex>
+    </Flex>
   );
 };
 
