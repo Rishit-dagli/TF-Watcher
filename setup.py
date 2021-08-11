@@ -1,6 +1,6 @@
 import os.path
 
-from setuptools import setup,find_packages
+from setuptools import find_packages, setup
 
 
 def read(rel_path: str) -> str:
@@ -27,7 +27,7 @@ setup(
     name="tf-watcher",
     version=get_version("tfwatcher/version.py"),
     description="Monitor your TensorFlow model training on mobile devices, especially for Google Colab",
-    packages=["tfwatcher",find_packages(exclude=['tests*'])],
+    packages=["tfwatcher", find_packages(exclude=["tests*"])],
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
@@ -50,10 +50,7 @@ setup(
     url="https://github.com/Rishit-dagli/TF-Watcher/",
     author="Rishit Dagli",
     author_email="rishit.dagli@gmail.com",
-    install_requires=[
-        "tensorflow ~= 2.5.0",
-        "pyrebase4 ~= 4.5.0",
-    ],
+    install_requires=["tensorflow ~= 2.5.0", "pyrebase4 ~= 4.5.0",],
     extras_require={
         "dev": [
             "check-manifest",

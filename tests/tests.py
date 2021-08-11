@@ -1,8 +1,8 @@
 from logging import log
 
-import pytest
 import numpy as np
 import pyrebase
+import pytest
 import tensorflow as tf
 from numpy.testing import assert_array_compare, assert_array_equal
 from numpy.testing._private.utils import assert_almost_equal
@@ -21,7 +21,6 @@ fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
 
 X_train, y_train = X_train_full[:15000] / 255.0, y_train_full[:15000]
-
 
 
 def make_model():
@@ -43,7 +42,6 @@ model = make_model()
 model.summary()
 
 
-
 def train_model():
     epochs = 10
     history = model.fit(
@@ -61,11 +59,10 @@ def train_model():
 
     log_history = history.history
 
-    return history,log_history,epochs
+    return history, log_history, epochs
 
 
-
-history,log_history,epochs = train_model()
+history, log_history, epochs = train_model()
 
 loss_val, acc_val = model.evaluate(
     X_test,
@@ -76,7 +73,13 @@ loss_val, acc_val = model.evaluate(
 )
 
 predictions = model.predict(
-    X_test, verbose=False, callbacks=[PredictEnd(print_logs=True),PredictBatchEnd(schedule=2,print_logs=True)], batch_size=2000
+    X_test,
+    verbose=False,
+    callbacks=[
+        PredictEnd(print_logs=True),
+        PredictBatchEnd(schedule=2, print_logs=True),
+    ],
+    batch_size=2000,
 )
 predictions_list = []
 
@@ -84,23 +87,21 @@ for i in predictions:
     predictions_list.append(np.argmax(i))
 
 
-print("BreakPoint : ",predictions_list)
-print(len(predictions_list),len(y_test))
+print("BreakPoint : ", predictions_list)
+print(len(predictions_list), len(y_test))
 
 data = {
-        "val_loss": 2.311211347579956,
-        "val_accuracy": 0.06466666609048843,
-        "loss": 2.369312286376953,
-        "epoch": 0,
-        "accuracy": 0.07400000095367432,
-    }
-
+    "val_loss": 2.311211347579956,
+    "val_accuracy": 0.06466666609048843,
+    "loss": 2.369312286376953,
+    "epoch": 0,
+    "accuracy": 0.07400000095367432,
+}
 
 
 def test_assert_len_acc():
 
-    
-    history,log_history,epochs = train_model()
+    history, log_history, epochs = train_model()
     len_acc = len(log_history["accuracy"])
 
     assert len_acc == epochs
@@ -108,14 +109,21 @@ def test_assert_len_acc():
 
 def test_assert_len_loss():
 
-    history,log_history,epochs = train_model()
+    history, log_history, epochs = train_model()
     len_loss = len(log_history["loss"])
     assert len_loss == epochs
+
 
 def test_assert_len_predictions():
 
     predictions = model.predict(
-    X_test, verbose=False, callbacks=[PredictEnd(print_logs=True),PredictBatchEnd(schedule=2,print_logs=True)], batch_size=2000
+        X_test,
+        verbose=False,
+        callbacks=[
+            PredictEnd(print_logs=True),
+            PredictBatchEnd(schedule=2, print_logs=True),
+        ],
+        batch_size=2000,
     )
     predictions_list = []
 
@@ -126,7 +134,7 @@ def test_assert_len_predictions():
 
 
 def test_batch_bool():
-    history,log_history,epochs = train_model()
+    history, log_history, epochs = train_model()
     bool_val = log_history["batch"]
 
     assert bool_val[0] == False
@@ -135,28 +143,28 @@ def test_batch_bool():
 def test_firebase_write():
     ref_id = random_char(7)
 
-        # Firebase API shoulld return in an error
+    # Firebase API shoulld return in an error
     try:
-        write_to_firebase(data=data, ref_id=ref_id,level='prediction')
-        val_bool=True
+        write_to_firebase(data=data, ref_id=ref_id, level="prediction")
+        val_bool = True
     except:
-        val_bool=False
+        val_bool = False
         return "Not working"
 
         # Delete from Firebase after this is tested
     config = {
-            "apiKey": "AIzaSyAfCOOzFtKxTa-_pS3lO6URRGR8sVjK7sk",
-            "authDomain": "tf-watcher.firebaseapp.com",
-            "databaseURL": "https://tf-watcher-default-rtdb.firebaseio.com",
-            "projectId": "tf-watcher",
-            "storageBucket": "tf-watcher.appspot.com",
-        }
+        "apiKey": "AIzaSyAfCOOzFtKxTa-_pS3lO6URRGR8sVjK7sk",
+        "authDomain": "tf-watcher.firebaseapp.com",
+        "databaseURL": "https://tf-watcher-default-rtdb.firebaseio.com",
+        "projectId": "tf-watcher",
+        "storageBucket": "tf-watcher.appspot.com",
+    }
 
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
-    db.child(ref_id).remove()    
+    db.child(ref_id).remove()
 
-    assert len(ref_id) == 7 and val_bool==True
+    assert len(ref_id) == 7 and val_bool == True
 
 
 test_assert_len_acc()
