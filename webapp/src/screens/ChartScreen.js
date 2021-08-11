@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import {
-  VStack, Text, Button, Flex,
+  VStack, Text, Button, Flex, Container,
 } from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
@@ -11,6 +11,7 @@ import { db } from '../firebase/Firebase';
 
 import LoadingSpinner from '../components/LoadingSpinner';
 import ChartsContainer from '../components/ChartsContainer';
+import Footer from '../components/Footer';
 
 const ChartScreen = () => {
   const { id } = useParams();
@@ -73,6 +74,15 @@ const ChartScreen = () => {
             <Button colorScheme="gray" color="purple.400" paddingX="8" variant="outline">Share link</Button>
           </Flex>
           <ChartsContainer data={logs} />
+          <Container
+            w="100%"
+            maxW="100vw"
+            paddingInlineEnd="0"
+            paddingInlineStart="0"
+            color="white"
+          >
+            <Footer />
+          </Container>
         </VStack>
       )}
     </>
