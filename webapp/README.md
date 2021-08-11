@@ -31,7 +31,7 @@ Firebase Instance:
 
 ## Development Setup 🖥️
 
-You will require Yarn or npm to be able to run this application locally.
+You will require Yarn or npm to be able to run this application locally. Download npm from [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and Yarn from [here](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 
 To setup `tfwatcher webapp` and get all its dependencies, run the following:
 
