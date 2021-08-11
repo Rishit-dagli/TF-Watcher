@@ -2,10 +2,11 @@ import React from 'react';
 import {
   Container, Text, Button, Flex,
 } from '@chakra-ui/react';
+import { FaGithub, FaRegListAlt } from 'react-icons/fa';
 
 const TextContainer = () => (
-  <Container maxW="container.md" marginTop="16">
-    <Text fontSize="large" textAlign="justify">
+  <Container maxW="container.lg" marginTop="16">
+    <Text fontSize="md" textAlign="center" paddingX="6">
       Et magna sit duis reprehenderit reprehenderit amet
       proident dolor laborum culpa incididunt nisi labore. Pariatur
       veniam incididunt amet dolore aute cillum do est pariatur dolor
@@ -15,27 +16,33 @@ const TextContainer = () => (
       esse et. In amet ex ea irure pariatur. Sunt amet aliquip aliquip
       ipsum eu. Esse est eu nulla adipisicing dolore. Velit cillum ex
       eiusmod et ut elit amet culpa duis elit labore.
+      In amet ex ea irure pariatur. Sunt amet aliquip aliquip
+      ipsum eu. Esse est eu nulla adipisicing dolore. Velit cillum ex
+      eiusmod et ut elit amet culpa duis elit labore.
     </Text>
-    <Flex flexDir={{ base: 'column', md: 'row' }} justify="center" marginTop="8">
+    <Flex flexDir={{ base: 'column', md: 'row' }} justify="center" marginTop="8" align="center">
       <Button
-        bgColor="purple.700"
+        bgColor="gray.700"
         variant="outline"
         colorScheme="white"
         marginRight={{ base: '0', md: '3' }}
         marginBottom={{ base: '3', md: '0' }}
+        width="52"
         boxShadow="lg"
+        leftIcon={<FaGithub />}
       >
-        Checkout the Repository
+        GitHub
       </Button>
       <Button
-        bgColor="purple.700"
+        bgColor="gray.700"
         variant="outline"
         colorScheme="white"
         paddingX="15"
-        width="48"
+        width="52"
         boxShadow="lg"
+        leftIcon={<FaRegListAlt />}
       >
-        Read the docs
+        Docs
       </Button>
     </Flex>
   </Container>

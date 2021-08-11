@@ -4,16 +4,18 @@ import {
 } from '@chakra-ui/react';
 
 import info from '../assets/info.json';
+import '../css/styles.css';
 
 const FeatureCard = (data) => (
-  <HStack maxW="md" margin="4" borderRadius="20" key={data} width={{ base: 'xs', md: 'md', lg: 'xl' }}>
+  <HStack maxW="md" margin="4" borderRadius="20" key={data} width={{ base: 'xs', md: 'md', lg: 'xl' }} className="feature-card">
     <Image
       src="gibbresh.png"
       fallbackSrc="https://via.placeholder.com/150"
       borderRadius="25"
-      marginRight="-10"
+      marginRight="-16"
       zIndex="2"
       boxShadow="dark-lg"
+      boxSize="100px"
     />
     <Box
       bgColor="gray.800"
@@ -21,7 +23,7 @@ const FeatureCard = (data) => (
       width="100%"
       borderRadius="25"
       padding={{ base: '4', md: '8' }}
-      paddingLeft={{ base: '10', md: '12' }}
+      paddingLeft={{ base: '16', md: '20' }}
       boxShadow="dark-lg"
     >
       <Text color="white">

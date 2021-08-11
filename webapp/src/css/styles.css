@@ -1,0 +1,5 @@
+.feature-card:hover{
+  transform: scale(1.02,1.02);
+  animation-duration: 2s;
+  transition: ease-in-out;
+}
