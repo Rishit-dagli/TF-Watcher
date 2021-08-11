@@ -4,8 +4,11 @@
 # Default owners for everything in repo.
 * @Rishit-dagli
 
-# Python Package`
-/tfwatcher @Rishit-dagli @harshgeek4coder
+# Python Package
+/tfwatcher @Rishit-dagli
+
+# Test
+/tfwatcher/tests.py @harshgeek4coder
 
 # Web App
 /webapp @shreyaparadkar
