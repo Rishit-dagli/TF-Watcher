@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="../main/media/logo.png" height="128"/>
+  <img src="../media/logo.png" height="128"/>
 </p>
-<br />
 
 # TF Watcher (Webapp)
 
@@ -9,8 +8,8 @@ _**TF Watcher Webapp**_ is built with React, Chakra-UI and Firebase SDK.
 The main aim of this application is to monitor ML training or testing process. It is connected with Firebase, to get
 real time updates and show graphs for the same.
 
-[_**Visit the deployed website**_](https://ashy-ocean-0e69e8700.azurestaticapps.net/) to test it out.
-<br /><br />
+<!--- TODO: Fill out the website link -->
+[_**Visit the deployed website**_](TODO) to test it out.
 
 ## Features 👓
 
@@ -19,7 +18,6 @@ real time updates and show graphs for the same.
 - [x] Read data and format it to display charts
 - [x] Deployed to Azure Static Webapp
 - [ ] Tests (WIP)
-<br /><br />
 
 ## About this project 💡
 
@@ -30,11 +28,10 @@ The project has two main screens:
 
 Firebase Instance: 
 - [**`Firebase`**](/src/firebase/Firebase.js): Configure the Firebase Instance and leverages its functionality for authentication and accessing real-time data.
-<br /><br />
 
 ## Development Setup 🖥️
 
-You will require Yarn or Npm to be able to run this application locally.
+You will require Yarn or npm to be able to run this application locally.
 
 To setup `tfwatcher webapp` and get all its dependencies, run the following:
 
@@ -55,7 +52,6 @@ To create a build version:
 ```
 yarn run build
 ```
-<br />
 
 ## Built with 🛠
 
