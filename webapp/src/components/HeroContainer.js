@@ -18,7 +18,7 @@ const HeroContainer = (params) => {
     <Flex
       flexDir="column"
       height="85vh"
-      bgColor="gray.800"
+      style={{ backgroundImage: 'linear-gradient(#1A202C, #2D3748)' }}
       borderBottomRightRadius={{ base: '100', md: '250' }}
       boxShadow="2xl"
       align="center"
