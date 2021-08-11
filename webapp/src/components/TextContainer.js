@@ -2,47 +2,51 @@ import React from 'react';
 import {
   Container, Text, Button, Flex,
 } from '@chakra-ui/react';
-import { FaGithub, FaRegListAlt } from 'react-icons/fa';
+import { FaGithub, FaRegListAlt, FaRocket } from 'react-icons/fa';
+
+import intro from '../assets/info.json';
 
 const TextContainer = () => (
   <Container maxW="container.lg" marginTop="16">
     <Text fontSize="md" textAlign="center" paddingX="6">
-      Et magna sit duis reprehenderit reprehenderit amet
-      proident dolor laborum culpa incididunt nisi labore. Pariatur
-      veniam incididunt amet dolore aute cillum do est pariatur dolor
-      esse et. In amet ex ea irure pariatur. Sunt amet aliquip aliquip
-      ipsum eu. Esse est eu nulla adipisicing dolore. Velit cillum ex
-      eiusmod et ut elit amet culpa duis elit labore.
-      esse et. In amet ex ea irure pariatur. Sunt amet aliquip aliquip
-      ipsum eu. Esse est eu nulla adipisicing dolore. Velit cillum ex
-      eiusmod et ut elit amet culpa duis elit labore.
-      In amet ex ea irure pariatur. Sunt amet aliquip aliquip
-      ipsum eu. Esse est eu nulla adipisicing dolore. Velit cillum ex
-      eiusmod et ut elit amet culpa duis elit labore.
+      {intro.desc}
     </Text>
     <Flex flexDir={{ base: 'column', md: 'row' }} justify="center" marginTop="8" align="center">
+      <a href="https://github.com/Rishit-dagli/TF-Watcher" target="_blank" rel="noreferrer">
+        <Button
+          bgColor="gray.700"
+          variant="outline"
+          colorScheme="white"
+          marginRight={{ base: '0', md: '3' }}
+          marginBottom={{ base: '3', md: '0' }}
+          width="48"
+          boxShadow="lg"
+          leftIcon={<FaGithub />}
+        >
+          GitHub
+        </Button>
+      </a>
       <Button
         bgColor="gray.700"
         variant="outline"
         colorScheme="white"
         marginRight={{ base: '0', md: '3' }}
         marginBottom={{ base: '3', md: '0' }}
-        width="52"
+        width="48"
         boxShadow="lg"
-        leftIcon={<FaGithub />}
+        leftIcon={<FaRegListAlt />}
       >
-        GitHub
+        Documentation
       </Button>
       <Button
         bgColor="gray.700"
         variant="outline"
         colorScheme="white"
-        paddingX="15"
-        width="52"
+        width="48"
         boxShadow="lg"
-        leftIcon={<FaRegListAlt />}
+        leftIcon={<FaRocket />}
       >
-        Docs
+        Quickstart
       </Button>
     </Flex>
   </Container>

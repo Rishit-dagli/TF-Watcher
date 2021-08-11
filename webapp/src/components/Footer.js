@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Text, Button } from '@chakra-ui/react';
+import info from '../assets/info.json';
 
 const Footer = () => (
   <>
@@ -15,11 +16,7 @@ const Footer = () => (
     >
       <Flex flexDirection="column" width="xs" alignItems="flex-start">
         <Text fontWeight="bold">TF WATCHER</Text>
-        <Text fontSize="small">
-          Aute enim deserunt Lorem aliqua cillum.
-          Aute enim deserunt Lorem aliqua cillum.Aute enim deserunt Lorem aliqua cillum.
-          Aute enim deserunt Lorem aliqua cillum.Aute enim deserunt Lorem aliqua cillum.
-        </Text>
+        <Text fontSize="small">{ info.footer }</Text>
         <Button colorScheme="teal" size="sm" marginTop="6" fontWeight="normal">Contact Us</Button>
       </Flex>
       <Flex flexDirection="column" width="xs" marginTop={{ base: '5', md: '0' }}>
@@ -39,7 +36,7 @@ const Footer = () => (
       </Flex>
     </Flex>
     <Flex bgColor="gray.900" justify="center" paddingY="2">
-      <Text fontSize="sm">Made with 💜</Text>
+      <Text fontSize="sm">Dedicated to all ML developers with 💜</Text>
     </Flex>
   </>
 );
