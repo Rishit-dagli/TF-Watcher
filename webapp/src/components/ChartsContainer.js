@@ -3,7 +3,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import getAllParams from '../helpers/getChartsDataFormat';
 import AreaChartComponent from './AreaChartComponent';
-import { HorizontalBarChartComponent, VerticalBarChartComponent } from './BarChartComponent';
+import BarChartComponent from './BarChartComponent';
 
 const ChartsContainer = (params) => {
   const { data } = params;
@@ -50,7 +50,7 @@ const ChartsContainer = (params) => {
       </Flex>
       <Flex paddingX="3">
         <Box display={{ base: 'none', xl: 'block' }} width="xs">
-          <VerticalBarChartComponent logs={data} xaxis={baseParam} />
+          <BarChartComponent logs={data} xaxis={baseParam} dir="v" />
         </Box>
         <Box
           display={{ base: 'block', xl: 'none' }}
@@ -58,7 +58,7 @@ const ChartsContainer = (params) => {
             base: 'xs', sm: 'md', md: '2xl', lg: '4xl',
           }}
         >
-          <HorizontalBarChartComponent logs={data} xaxis={baseParam} />
+          <BarChartComponent logs={data} xaxis={baseParam} dir="h" />
         </Box>
       </Flex>
     </Flex>
