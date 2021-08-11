@@ -28,6 +28,8 @@ const HeroContainer = (params) => {
       <Text fontSize="4xl" fontWeight="bold" marginTop="-20">TF WATCHER</Text>
       <Text marginTop="10" marginBottom="8" maxW={{ base: 'xs', sm: 'md', md: 'xl' }} textAlign="center">
         {info.intro}
+        <br />
+        {info.intro2}
       </Text>
       <Flex flexDir={{ base: 'column', lg: 'row' }}>
         <Input

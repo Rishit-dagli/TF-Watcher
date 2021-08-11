@@ -1,5 +1,6 @@
 {
-  "intro":"TF Watcher is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers with 💜.",
+  "intro":"TF Watcher is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle.",
+  "intro2":"Dedicated to all ML Developers with 💜",
   "desc":"TF Watcher is completely open-sourced and you can easily start using this in your TensorFlow training, evaluation, and prediction processes with as little as 2 lines of code! You can use this project with premade training loops or also use it in the exact same manner in your custom training loops too, even in a TensorFlow graph. Further, you can monitor your model's performance or progress in real-time. Get started in no time with the Quickstart example.",
   "features":[
     {
