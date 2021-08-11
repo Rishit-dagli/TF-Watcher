@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 
 import { UserContext } from '../providers/AuthProvider';
-import { db } from '../firebase/Firebase';
+import { db, redirectWithGoogle } from '../firebase/Firebase';
 
 import LoadingSpinner from '../components/LoadingSpinner';
 import ChartsContainer from '../components/ChartsContainer';
@@ -19,6 +19,14 @@ const ChartScreen = () => {
   const { user, loading } = useContext(UserContext);
   const [logs, setLogs] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
+
+  const login = () => {
+    redirectWithGoogle();
+  };
+
+  useEffect(() => {
+    if (!loading && !user) login();
+  }, [user, loading]);
 
   useEffect(() => {
     const rootRef = db.ref();

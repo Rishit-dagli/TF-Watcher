@@ -23,8 +23,10 @@ const Navbar = () => {
 
   const logout = async () => {
     const success = await logOut();
-    if (success) history.go(0);
-    else setErr(!success);
+    if (success) {
+      history.replace('/');
+      history.go(0);
+    } else setErr(!success);
   };
 
   useEffect(() => {

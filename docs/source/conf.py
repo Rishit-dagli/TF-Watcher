@@ -35,7 +35,12 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.coverage",
     "sphinx.ext.imgconverter",
+    "sphinx_rtd_dark_mode",
+    "sphinxemoji.sphinxemoji",
 ]
+
+# user starts in light mode
+default_dark_mode = False
 
 # Show doc coverage stats
 coverage_show_missing_items = True

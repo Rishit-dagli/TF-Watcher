@@ -1,3 +1,6 @@
+Sphinx==4.1.2
 pyrebase4
 tensorflow
-sphinx_rtd_theme
+sphinx-rtd-theme
+sphinx-rtd-dark-mode
+sphinxemoji

@@ -17,7 +17,7 @@ def write_to_firebase(data: dict, ref_id: str, level: str):
     :type data: dict
     :param ref_id: A unique ID where the data would be pushed to on Firebase
     :type ref_id: str
-    :param level: This should be either ``btach or epoch`` or ``prediction``
+    :param level: This should be either ``epoch``, ``batch`` or ``prediction``
         corresponding to the level where the logs are collected. For ``prediction``,
         the data would be pushed without the epoch or batch number it was collected on.
     :type level: str
@@ -54,8 +54,10 @@ def write_in_callback(data: dict, ref_id: str):
 
     if data["epoch"] is False and data["batch"] is False:
         level = "prediction"
+    elif data["batch"] is False:
+        level = "epoch"
     else:
-        level = "batch or epoch"
+        level = "batch"
 
     write_to_firebase(data=data, ref_id=ref_id, level=level)
 
