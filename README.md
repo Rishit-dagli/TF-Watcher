@@ -25,12 +25,14 @@ This project includes two subprojects:
 
 ### 🔹 [TF Watcher Python Package](/tfwatcher)
 
-This is a *Python Package* built using TensorFlow and Pyrebase (a python wrapper for the Firebase API). This llows to eaisly monitor the metrics you want and writes them to Firebase realtime database.
+This is a *Python Package* built using TensorFlow and Pyrebase (a python wrapper for the Firebase API). This allows to eaisly monitor the metrics you want and writes them to Firebase realtime database.
+
 Navigate to [`/tfwatcher`](/tfwatcher) directory to browse and know more about the TF Watcher Python Package.
 
 ### 🔹 [TF Watcher Web App](/webapp)
 
 This is a *Web Application* built using React, Chakra-UI, Recharts and Firebase deployed on Azure Static Web Apps. It reads from the Firebase realtime database and displays the logs using charts.
+
 Navigate to [`/webapp`](/webapp) directory to browse and know more about TF Watcher Web App.
 
 ## Want to Contribute 🙋‍♂️?
