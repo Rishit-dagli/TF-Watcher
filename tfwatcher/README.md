@@ -57,3 +57,17 @@ git clone https://github.com/Rishit-dagli/TF-Watcher.git
 cd TF-Watcher
 pip install -e .[dev]
 ```
+
+## Built with 🛠
+
+- [Python](https://www.python.org/) - A programming language that lets you work quickly and integrate systems more effectively, used quite a lot for ML development
+- [pip](https://pip.pypa.io/en/stable/) - Package installer for Python, allows easily packaging and deploying
+- [TensorFlow](https://www.tensorflow.org/) - An end-to-end open source machine learning platform
+  - [Keras](https://keras.io/) - High level TensorFlow API
+  - [callbacks](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks) - Utilities called at certain points during model training
+- [Firebase](https://firebase.google.com/) - Accelerate and scale app development with fully managed backend infrastructure
+  - [Realtime Database](https://firebase.google.com/products/realtime-database) - Cloud-hosted NoSQL database to store and sync dataa in rwaltime
+  - [Authentication](https://firebase.google.com/products/auth) - Simple, free multi-platform sign-in
+- [Pyrebase4](https://github.com/nhorvath/Pyrebase4) - A simple python wrapper for the Firebase API
+- [Sphinx](https://www.sphinx-doc.org/en/master/) - Create intelligent and beautiful documentation
+- [Read The Docs](https://readthedocs.org/) - Simplifies software documentation by automating building, versioning, and hosting docs
