@@ -15,7 +15,7 @@ from tfwatcher.callbacks.predict_batch import PredictBatchEnd
 from tfwatcher.callbacks.test_batch import TestBatchEnd
 from tfwatcher.callbacks.train_batch import TrainBatchEnd
 from tfwatcher.firebase_config import get_firebase_config
-from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase
+from tfwatcher.firebase_helpers import random_char, write_in_callback, write_to_firebase, get_firebase_config
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 (X_train_full, y_train_full), (X_test, y_test) = fashion_mnist.load_data()
@@ -43,7 +43,7 @@ model.summary()
 
 
 def train_model():
-    epochs = 10
+    epochs = 2
     history = model.fit(
         X_train,
         y_train,
@@ -143,14 +143,8 @@ def test_firebase_write():
         val_bool = False
         return "Not working"
 
-        # Delete from Firebase after this is tested
-    config = {
-        "apiKey": "AIzaSyAfCOOzFtKxTa-_pS3lO6URRGR8sVjK7sk",
-        "authDomain": "tf-watcher.firebaseapp.com",
-        "databaseURL": "https://tf-watcher-default-rtdb.firebaseio.com",
-        "projectId": "tf-watcher",
-        "storageBucket": "tf-watcher.appspot.com",
-    }
+    # Delete from Firebase after this is tested
+    config = get_firebase_config()
 
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
