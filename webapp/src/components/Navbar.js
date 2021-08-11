@@ -1,8 +1,9 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {
-  Text, Button, Flex, useToast, Image, HStack,
+  Text, Button, Flex, useToast, Image, HStack, VStack,
 } from '@chakra-ui/react';
+import GitHubButton from 'react-github-btn';
 
 import { logOut, signInWithGoogle } from '../firebase/Firebase';
 import { UserContext } from '../providers/AuthProvider';
@@ -44,23 +45,36 @@ const Navbar = () => {
 
   return (
     <Flex
-      bgColor="gray.800"
-      alignItems="center"
+      bgColor="gray.900"
+      align="center"
       paddingY="3"
-      paddingX={{ base: '8', md: '20', lg: '28' }}
+      paddingX={{ base: '6', md: '20', lg: '28' }}
       position="fixed"
       width="100%"
       top="0"
       zIndex="10"
       opacity="0.9"
+      justify="center"
     >
       <Link to="/" style={{ flexGrow: 1 }}>
         <HStack>
-          <Image src={logo} boxSize={{ base: 8, md: 10 }} bgSize="contain" />
+          <Image src={logo} boxSize={{ base: 7 }} bgSize="contain" />
           <Text fontWeight="bold" color="white" display={{ base: 'none', md: 'block' }}>TF Watcher</Text>
         </HStack>
       </Link>
+      <VStack paddingTop="1.5">
+        <GitHubButton
+          href="https://github.com/Rishit-dagli/TF-Watcher"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star Rishit-dagli/TF-Watcher on GitHub"
+          id="star-btn"
+        >
+          Star
+        </GitHubButton>
+      </VStack>
       <Button
+        marginLeft="4"
         size="sm"
         colorScheme="teal"
         paddingX="6"
