@@ -22,7 +22,7 @@ const Footer = () => (
           size="sm"
           marginTop="6"
           fontWeight="normal"
-          onClick={() => window.open('mailto:tf-watcher-team@googlegroups.com?subject=Subject&body=Body%20goes%20here')}
+          onClick={() => window.open('mailto:tf-watcher-team@googlegroups.com')}
         >
           Contact Us
         </Button>
