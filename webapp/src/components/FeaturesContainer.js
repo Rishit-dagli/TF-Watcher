@@ -13,7 +13,7 @@ import '../css/styles.css';
 const FeatureCard = (data) => {
   const { content, icon } = data;
   return (
-    <HStack maxW="md" margin="4" borderRadius="20" key={content} width={{ base: 'xs', md: 'md', lg: 'xl' }} className="feature-card">
+    <HStack maxW="md" margin="4" borderRadius="20" key={content} width={{ base: '68', md: 'md', lg: 'xl' }} className="feature-card">
       <Box
         borderRadius="25"
         marginRight="-16"

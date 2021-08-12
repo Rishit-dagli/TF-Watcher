@@ -7,19 +7,27 @@ const Footer = () => (
     <Flex
       bgColor="gray.800"
       borderTopRightRadius="95"
-      paddingX={{ base: '8', lg: '16' }}
+      paddingX={{ base: '6', lg: '16' }}
       paddingTop="12"
       paddingBottom="6"
       flexDir={{ base: 'column', md: 'row' }}
       justify="space-evenly"
       borderTop="2px solid #2C7A7B"
     >
-      <Flex flexDirection="column" width="xs" alignItems="flex-start">
+      <Flex flexDirection="column" width={{ base: '64', md: 'xs' }} alignItems="flex-start">
         <Text fontWeight="bold">TF WATCHER</Text>
         <Text fontSize="small">{ info.footer }</Text>
-        <Button colorScheme="teal" size="sm" marginTop="6" fontWeight="normal">Contact Us</Button>
+        <Button
+          colorScheme="teal"
+          size="sm"
+          marginTop="6"
+          fontWeight="normal"
+          onClick={() => window.open('mailto:tf-watcher-team@googlegroups.com?subject=Subject&body=Body%20goes%20here')}
+        >
+          Contact Us
+        </Button>
       </Flex>
-      <Flex flexDirection="column" width="xs" marginTop={{ base: '5', md: '0' }}>
+      <Flex flexDirection="column" width={{ base: '64', md: 'xs' }} marginTop={{ base: '5', md: '0' }}>
         <Text fontWeight="bold">Attributions</Text>
         <Text fontSize="small">
           <a target="_blank" href="https://icons8.com/icon/7czWg1BJEt6Z/graph" rel="noreferrer">Graph</a>
