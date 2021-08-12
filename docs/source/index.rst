@@ -42,6 +42,11 @@ Quick Links
    installation
    tfwatcher
    webapp
+
+   .. only:: not latex
+   
+      TF-Watcher-Quickstart
+
    authors
 
 Indices and tables

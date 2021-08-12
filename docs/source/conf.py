@@ -22,7 +22,7 @@ copyright = "2021, Rishit Dagli"
 author = "Rishit Dagli"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.0"
+release = "0.1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -37,6 +37,7 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx_rtd_dark_mode",
     "sphinxemoji.sphinxemoji",
+    "nbsphinx",
 ]
 
 # user starts in light mode
