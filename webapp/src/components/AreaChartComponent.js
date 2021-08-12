@@ -16,13 +16,15 @@ const AreaChartComponent = (data) => {
     xaxis, lineA, lineB, logs,
   } = data;
   return (
-    <Flex maxW="4xl" bgColor="gray.700" borderRadius="2xl" boxShadow="2xl" marginBottom="5" flexDir="row" align="center">
-      <Center bgColor="teal.500" height="400" borderTopLeftRadius="2xl" borderBottomLeftRadius="2xl" width="7">
+    <Flex maxW="4xl" bgColor="gray.700" borderRadius="2xl" boxShadow="2xl" marginBottom="3" flexDir="row" align="center">
+      <Center bgColor="teal.500" height="400" borderTopLeftRadius="2xl" borderBottomLeftRadius="2xl" width={{ base: '7', md: '9' }}>
         <Text
           style={{ transform: 'rotate(-90deg)' }}
           color="white"
           marginY="0"
           paddingY="0"
+          fontSize="md"
+          fontWeight="semibold"
         >
           {lineA.toUpperCase()}
         </Text>
@@ -59,7 +61,7 @@ const AreaChartComponent = (data) => {
             <Legend
               verticalAlign="top"
               layout="horizontal"
-              align="center"
+              align="right"
               wrapperStyle={{
                 paddingBottom: '20px',
               }}

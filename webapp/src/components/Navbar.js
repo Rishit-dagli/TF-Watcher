@@ -77,10 +77,11 @@ const Navbar = () => {
       </VStack>
       <Button
         marginLeft="4"
-        size="sm"
+        size="xs"
         colorScheme="teal"
-        paddingX="6"
-        paddingY="2"
+        paddingX="5"
+        height="7"
+        borderRadius="sm"
         onClick={loginStatus ? logout : login}
       >
         {loginStatus ? 'Logout' : 'Login'}

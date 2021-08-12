@@ -8,14 +8,21 @@ import {
 } from 'react-icons/fa';
 
 import info from '../assets/info.json';
-import '../css/styles.css';
 
 const FeatureCard = (data) => {
   const { content, icon } = data;
   return (
-    <HStack maxW="md" margin="4" borderRadius="20" key={content} width={{ base: 'xs', md: 'md', lg: 'xl' }} className="feature-card">
+    <HStack
+      maxW="md"
+      marginY="4"
+      marginX="6"
+      borderRadius="14"
+      key={content}
+      width={{ base: '68', md: 'md', lg: 'xl' }}
+      className="feature-card"
+    >
       <Box
-        borderRadius="25"
+        borderRadius="14"
         marginRight="-16"
         zIndex="2"
         boxShadow="dark-lg"
@@ -37,10 +44,12 @@ const FeatureCard = (data) => {
         bgColor="gray.800"
         height="150"
         width="100%"
-        borderRadius="25"
+        borderRadius="14"
         padding={{ base: '4', md: '8' }}
         paddingLeft={{ base: '16', md: '20' }}
         boxShadow="dark-lg"
+        display="flex"
+        alignItems="center"
       >
         <Text color="white">
           {content}

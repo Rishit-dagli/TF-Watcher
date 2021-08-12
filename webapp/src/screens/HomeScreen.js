@@ -63,9 +63,9 @@ const HomeScreen = () => {
       maxW="100vw"
       paddingInlineEnd="0"
       paddingInlineStart="0"
-      bgColor="teal.600"
       color="white"
       minH="100vh"
+      className="home-screen"
     >
       <HeroContainer searchId={searchId} searchLoading={searchLoading} />
       <TextContainer />
