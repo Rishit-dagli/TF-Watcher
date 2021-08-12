@@ -12,8 +12,7 @@ _**TF Watcher Python Package**_ is built with TensorFlow and Pyrebase (a python 
 Aim of this project is to create new TensorFlow callbacks to easily log the data and write it to Firebase realtime database. 
 _Dedicated to all ML Developers with_ ❤️.
 
-<!-- TODO: Add documentation link -->
-[📄 _**Visit the documentation of this project**_](TODO) to get more information in detail.
+[📄 _**Visit the documentation of this project**_](https://rishit-dagli.github.io/TF-Watcher/) to get more information in detail.
 
 ## Installation
 

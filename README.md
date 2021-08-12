@@ -19,8 +19,7 @@
 
 ## 📄 Project Documentation
 
-<!-- TODO: Host the docs -->
-[_**Visit the documentation of this project**_](TODO) to get more information in detail.
+[_**Visit the documentation of this project**_](https://rishit-dagli.github.io/TF-Watcher/) to get more information in detail.
 
 ## 💡 About the Project
 
