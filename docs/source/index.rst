@@ -30,7 +30,7 @@ Quick Links
 ------------
 
 * Source: `GitHub <https://github.com/Rishit-dagli/TF-Watcher>`_
-* `Web App <TODO>`_
+* `Web App <https://www.tfwatcher.tech/>`_
 * `Issue Tracker <https://github.com/Rishit-dagli/TF-Watcher/issues>`_
 * `Mailing List <https://groups.google.com/g/tf-watcher>`_
 
@@ -41,6 +41,7 @@ Quick Links
    introduction
    installation
    tfwatcher
+   webapp
    authors
 
 Indices and tables
