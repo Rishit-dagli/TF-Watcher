@@ -63,6 +63,7 @@ setup(
             "isort",
             "sphinx",
             "sphinx-rtd-theme",
+            "pytest",
         ],
     },
 )

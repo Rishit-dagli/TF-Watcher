@@ -6,6 +6,7 @@
 # TF Watcher (Python Package)
 
 [![Upload Python Package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml)
+[![Test Python package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml)
 
 _**TF Watcher Python Package**_ is built with TensorFlow and Pyrebase (a python wrapper for the Firebase🔥 API). 
 Aim of this project is to create new TensorFlow callbacks to easily log the data and write it to Firebase realtime database. 
@@ -29,7 +30,7 @@ This command also installs any other required dependencies if they are not insta
 - [x] Easy structure
 - [x] Support easily logging training, validation or testing metrics
 - [x] Write data to Firebase realtime database
-- [ ] Tests (WIP)
+- [x] Tests
 
 ## About this project 💡
 
@@ -57,3 +58,17 @@ git clone https://github.com/Rishit-dagli/TF-Watcher.git
 cd TF-Watcher
 pip install -e .[dev]
 ```
+
+## Built with 🛠
+
+- [Python](https://www.python.org/) - A programming language that lets you work quickly and integrate systems more effectively, used quite a lot for ML development
+- [pip](https://pip.pypa.io/en/stable/) - Package installer for Python, allows easily packaging and deploying
+- [TensorFlow](https://www.tensorflow.org/) - An end-to-end open source machine learning platform
+  - [Keras](https://keras.io/) - High level TensorFlow API
+  - [callbacks](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks) - Utilities called at certain points during model training
+- [Firebase](https://firebase.google.com/) - Accelerate and scale app development with fully managed backend infrastructure
+  - [Realtime Database](https://firebase.google.com/products/realtime-database) - Cloud-hosted NoSQL database to store and sync dataa in rwaltime
+  - [Authentication](https://firebase.google.com/products/auth) - Simple, free multi-platform sign-in
+- [Pyrebase4](https://github.com/nhorvath/Pyrebase4) - A simple python wrapper for the Firebase API
+- [Sphinx](https://www.sphinx-doc.org/en/master/) - Create intelligent and beautiful documentation
+- [Read The Docs](https://readthedocs.org/) - Simplifies software documentation by automating building, versioning, and hosting docs
