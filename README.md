@@ -7,13 +7,12 @@
 [![Build Docs](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/sphinx-ci.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/sphinx-ci.yml)
 [![Lint Code Base](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/linter.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/linter.yml)
 
+[![DOI](https://zenodo.org/badge/389973536.svg)](https://zenodo.org/badge/latestdoi/389973536)
 [![GitHub license](https://img.shields.io/github/license/Rishit-dagli/TF-Watcher)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![GitHub stars](https://img.shields.io/github/stars/Rishit-dagli/TF-Watcher?style=social)](https://github.com/Rishit-dagli/TF-Watcher/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Rishit-dagli/TF-Watcher?style=social)](https://github.com/Rishit-dagli/TF-Watcher/network/members)
 [![GitHub watchers](https://img.shields.io/github/watchers/Rishit-dagli/TF-Watcher?style=social)](https://github.com/Rishit-dagli/TF-Watcher/watchers)
-
-<!-- TODO: Create Zenodo badge -->
 
 **TF Watcher** is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers with ❤️. 
 
