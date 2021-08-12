@@ -25,17 +25,19 @@ const TextContainer = () => (
           GitHub
         </Button>
       </a>
-      <Button
-        bgColor="gray.700"
-        marginRight={{ base: '0', md: '5' }}
-        marginBottom={{ base: '3', md: '0' }}
-        width="48"
-        boxShadow="lg"
-        leftIcon={<FaRegListAlt />}
-        className="btn"
-      >
-        Documentation
-      </Button>
+      <a href="https://rishit-dagli.github.io/TF-Watcher/" target="_blank" rel="noreferrer">
+        <Button
+          bgColor="gray.700"
+          marginRight={{ base: '0', md: '5' }}
+          marginBottom={{ base: '3', md: '0' }}
+          width="48"
+          boxShadow="lg"
+          leftIcon={<FaRegListAlt />}
+          className="btn"
+        >
+          Documentation
+        </Button>
+      </a>
       <Button
         bgColor="gray.700"
         width="48"
