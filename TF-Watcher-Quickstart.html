@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Quickstart: TF Watcher &mdash; TF Watcher 0.1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+  <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script src="_static/dark_mode_js/default_light.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TF Watcher
+          
+
+          
+            
+            <img src="_static/tf-watcher.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tfwatcher.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webapp.html">Using the Web App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TF Watcher</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quickstart: TF Watcher</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/TF-Watcher-Quickstart.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<p><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
+<div class="section" id="Quickstart:-TF-Watcher">
+<h1>Quickstart: TF Watcher<a class="headerlink" href="#Quickstart:-TF-Watcher" title="Permalink to this headline">¶</a></h1>
+<p><img alt="image0" src="https://i.imgur.com/C1EuWC2.png" /></p>
+<p>This example serves as a quickstart for the TF Watcher project. <strong>TF Watcher</strong> is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers with ❤️.</p>
+<p>If you find this useful please consider giving a ⭐ to <a class="reference external" href="https://github.com/Rishit-dagli/TF-Watcher">the repo</a>.</p>
+<p>In this example we’ll use the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/datasets/fashion_mnist">Fashion MNIST dataset</a> by Laurence Moroney to serve as a quickstart.</p>
+<div class="section" id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span>!pip install tf-watcher==0.1.1
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Collecting tf-watcher==0.1.1
+  Downloading tf_watcher-0.1.1-py3-none-any.whl (22 kB)
+Requirement already satisfied: tensorflow~=2.5.0 in /usr/local/lib/python3.7/dist-packages (from tf-watcher==0.1.1) (2.5.0)
+Collecting pyrebase4~=4.5.0
+  Downloading Pyrebase4-4.5.0-py3-none-any.whl (8.9 kB)
+Requirement already satisfied: requests&gt;=2.19.1 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.23.0)
+Requirement already satisfied: oauth2client&gt;=4.1.2 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (4.1.3)
+Collecting gcloud&gt;=0.18.3
+  Downloading gcloud-0.18.3.tar.gz (454 kB)
+     |████████████████████████████████| 454 kB 9.0 MB/s
+Collecting python-jwt&gt;=2.0.1
+  Downloading python_jwt-3.3.0-py2.py3-none-any.whl (6.8 kB)
+Collecting requests-toolbelt&gt;=0.7.1
+  Downloading requests_toolbelt-0.9.1-py2.py3-none-any.whl (54 kB)
+     |████████████████████████████████| 54 kB 3.8 MB/s
+Collecting pycryptodome&gt;=3.6.4
+  Downloading pycryptodome-3.10.1-cp35-abi3-manylinux2010_x86_64.whl (1.9 MB)
+     |████████████████████████████████| 1.9 MB 46.4 MB/s
+Requirement already satisfied: httplib2&gt;=0.9.1 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.17.4)
+Requirement already satisfied: googleapis-common-protos in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.53.0)
+Requirement already satisfied: protobuf!=3.0.0.b2.post1,&gt;=3.0.0b2 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (3.17.3)
+Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.15.0)
+Requirement already satisfied: pyasn1&gt;=0.1.7 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.4.8)
+Requirement already satisfied: rsa&gt;=3.1.4 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (4.7.2)
+Requirement already satisfied: pyasn1-modules&gt;=0.0.5 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.2.8)
+Collecting jwcrypto&gt;=0.8
+  Downloading jwcrypto-1.0-py2.py3-none-any.whl (82 kB)
+     |████████████████████████████████| 82 kB 1.4 MB/s
+Collecting deprecated
+  Downloading Deprecated-1.2.12-py2.py3-none-any.whl (9.5 kB)
+Collecting cryptography&gt;=2.3
+  Downloading cryptography-3.4.7-cp36-abi3-manylinux2014_x86_64.whl (3.2 MB)
+     |████████████████████████████████| 3.2 MB 60.0 MB/s
+Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.14.6)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.20)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (3.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2021.5.30)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.24.3)
+Requirement already satisfied: keras-nightly~=2.5.0.dev in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0.dev2021032900)
+Requirement already satisfied: tensorboard~=2.5 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0)
+Requirement already satisfied: wheel~=0.35 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.36.2)
+Requirement already satisfied: gast==0.4.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.4.0)
+Requirement already satisfied: tensorflow-estimator&lt;2.6.0,&gt;=2.5.0rc0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0)
+Requirement already satisfied: termcolor~=1.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.1.0)
+Requirement already satisfied: opt-einsum~=3.3.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.3.0)
+Requirement already satisfied: flatbuffers~=1.12.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.12)
+Requirement already satisfied: wrapt~=1.12.1 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.12.1)
+Requirement already satisfied: astunparse~=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.6.3)
+Requirement already satisfied: numpy~=1.19.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.19.5)
+Requirement already satisfied: absl-py~=0.10 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.12.0)
+Requirement already satisfied: typing-extensions~=3.7.4 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.7.4.3)
+Requirement already satisfied: h5py~=3.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.1.0)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.1.2)
+Requirement already satisfied: grpcio~=1.34.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.34.1)
+Requirement already satisfied: google-pasta~=0.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.2.0)
+Requirement already satisfied: cached-property in /usr/local/lib/python3.7/dist-packages (from h5py~=3.1.0-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.5.2)
+Requirement already satisfied: werkzeug&gt;=0.11.15 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.0.1)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.8.0)
+Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.32.1)
+Requirement already satisfied: setuptools&gt;=41.0.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (57.2.0)
+Requirement already satisfied: tensorboard-data-server&lt;0.7.0,&gt;=0.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.6.1)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.4.4)
+Requirement already satisfied: markdown&gt;=2.6.8 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.3.4)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (4.2.2)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /usr/local/lib/python3.7/dist-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.3.0)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.7/dist-packages (from markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (4.6.1)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /usr/local/lib/python3.7/dist-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.1.1)
+Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from importlib-metadata-&gt;markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.5.0)
+Building wheels for collected packages: gcloud
+  Building wheel for gcloud (setup.py) ... done
+  Created wheel for gcloud: filename=gcloud-0.18.3-py3-none-any.whl size=602937 sha256=e3a3ff716ff76d8f061c8fc979069ea8a50bb09d084aa0d9ccfc48585f2fb6c5
+  Stored in directory: /root/.cache/pip/wheels/50/9d/19/dc1a639905431252dbf8a61388a83459c5cfef7add445bebe4
+Successfully built gcloud
+Installing collected packages: deprecated, cryptography, jwcrypto, requests-toolbelt, python-jwt, pycryptodome, gcloud, pyrebase4, tf-watcher
+Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 jwcrypto-1.0 pycryptodome-3.10.1 pyrebase4-4.5.0 python-jwt-3.3.0 requests-toolbelt-0.9.1 tf-watcher-0.1.1
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tfwatcher</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Get-the-data">
+<h2>Get the data<a class="headerlink" href="#Get-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span>
+<span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">training_images</span> <span class="o">=</span> <span class="n">training_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Training images</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Testing images</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
+32768/29515 [=================================] - 0s 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
+26427392/26421880 [==============================] - 0s 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
+8192/5148 [===============================================] - 0s 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
+4423680/4422102 [==============================] - 0s 0us/step
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Some-preprocessing">
+<h2>Some preprocessing<a class="headerlink" href="#Some-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Since this is a very simple dataset to work with very little pre-processing would be required. We will divide all pixel values with 255 to covert them from the range 0 - 255 to 0 - 1. As Neural Nets tend to work better with normalized data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">training_images</span> <span class="o">=</span> <span class="n">training_images</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Create-a-model">
+<h2>Create a model<a class="headerlink" href="#Create-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c1"># Add the metrics you want to monitor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Use-TF-Watcher-while-training">
+<h2>Use TF Watcher while training<a class="headerlink" href="#Use-TF-Watcher-while-training" title="Permalink to this headline">¶</a></h2>
+<p>We pass in <code class="docutils literal notranslate"><span class="pre">schedule</span></code> as 1 to monitor after every epoch</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">MonitorCallback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EpochEnd</span><span class="p">(</span><span class="n">schedule</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Use this ID to monitor training for this session: lowBKYU
+</pre></div></div>
+</div>
+<p>Use this ID in <a class="reference external" href="https://www.tfwatcher.tech">https://www.tfwatcher.tech</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
+<span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">MonitorCallback</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/15
+1875/1875 [==============================] - 37s 3ms/step - loss: 0.4598 - accuracy: 0.8318
+Epoch 2/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.3002 - accuracy: 0.8895
+Epoch 3/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.2556 - accuracy: 0.9050
+Epoch 4/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.2243 - accuracy: 0.9168
+Epoch 5/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1963 - accuracy: 0.9257
+Epoch 6/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1756 - accuracy: 0.9338
+Epoch 7/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1568 - accuracy: 0.9412
+Epoch 8/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1398 - accuracy: 0.9468
+Epoch 9/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1262 - accuracy: 0.9525
+Epoch 10/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1110 - accuracy: 0.9576
+Epoch 11/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0989 - accuracy: 0.9627
+Epoch 12/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0900 - accuracy: 0.9657
+Epoch 13/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0806 - accuracy: 0.9695
+Epoch 14/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0742 - accuracy: 0.9719
+Epoch 15/15
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.0689 - accuracy: 0.9742
+</pre></div></div>
+</div>
+<p>You should have been able to see your logs in real time on the web app with the metrics you defined:</p>
+<p><img alt="image0" src="https://i.imgur.com/C1EuWC2.png" /></p>
+<p>This was all for the quickstart example, but there is a lot more you can do with this project, check out <a class="reference external" href="https://rishit-dagli.github.io/TF-Watcher/">the documentation</a> to know more.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rishit Dagli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
