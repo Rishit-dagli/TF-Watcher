@@ -225,7 +225,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="tfwatcher.callbacks.epoch.EpochEnd">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tfwatcher.callbacks.epoch.</span></span><span class="sig-name descname"><span class="pre">EpochEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_logs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tfwatcher/callbacks/epoch.html#EpochEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfwatcher.callbacks.epoch.EpochEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.Callback</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.callbacks.Callback</span></code></p>
 <p>This class is a subclass of the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback">tf.keras.callbacks.Callback</a>
 abstract base class and overrides the methods <a class="reference internal" href="#tfwatcher.callbacks.epoch.EpochEnd.on_epoch_begin" title="tfwatcher.callbacks.epoch.EpochEnd.on_epoch_begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_epoch_begin()</span></code></a> and <a class="reference internal" href="#tfwatcher.callbacks.epoch.EpochEnd.on_epoch_end" title="tfwatcher.callbacks.epoch.EpochEnd.on_epoch_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_epoch_end()</span></code></a>
 allowing logging after epochs in training. This class also uses the
@@ -236,19 +236,19 @@ granular control for each epoch.</p>
 <p>Example:</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Logging data after every epoch</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">tfwatcher</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1"># here we specify schedule = 1 to log after every epoch</span>
-<span class="lineno"> 4 </span><span class="hll"><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EpochEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<span class="lineno"> 7 </span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 9 </span>    <span class="c1"># metrics which will be logged</span>
-<span class="lineno">10 </span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
-<span class="lineno">11 </span><span class="p">)</span>
-<span class="lineno">12 </span>
-<span class="lineno">13 </span><span class="hll"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">tfwatcher</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># here we specify schedule = 1 to log after every epoch</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EpochEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="c1"># metrics which will be logged</span>
+<span class="linenos">10</span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="linenos">11</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
 </span></pre></div>
 </div>
 </div>
@@ -320,7 +320,7 @@ returned. Example : <code class="docutils literal notranslate"><span class="pre"
 <dl class="py class">
 <dt class="sig sig-object py" id="tfwatcher.callbacks.predict.PredictEnd">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tfwatcher.callbacks.predict.</span></span><span class="sig-name descname"><span class="pre">PredictEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">round_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_logs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tfwatcher/callbacks/predict.html#PredictEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfwatcher.callbacks.predict.PredictEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.Callback</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.callbacks.Callback</span></code></p>
 <p>This class is a subclass of the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback">tf.keras.callbacks.Callback</a>
 abstract base class and overrides the methods <a class="reference internal" href="#tfwatcher.callbacks.predict.PredictEnd.on_predict_begin" title="tfwatcher.callbacks.predict.PredictEnd.on_predict_begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_predict_begin()</span></code></a> and <a class="reference internal" href="#tfwatcher.callbacks.predict.PredictEnd.on_predict_end" title="tfwatcher.callbacks.predict.PredictEnd.on_predict_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_predict_end()</span></code></a>
 allowing loging after <code class="docutils literal notranslate"><span class="pre">predict</span></code> method is run. This class also uses the
@@ -335,18 +335,18 @@ prediction is over and there are no batches or epochs to make a schedule for.</p
 <p>Example:</p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Logging data after predict method</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">tfwatcher</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="hll"><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">PredictEnd</span><span class="p">()</span>
-</span><span class="lineno"> 4 </span>
-<span class="lineno"> 5 </span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<span class="lineno"> 6 </span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 7 </span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="c1"># metrics which will be logged</span>
-<span class="lineno"> 9 </span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
-<span class="lineno">10 </span><span class="p">)</span>
-<span class="lineno">11 </span>
-<span class="lineno">12 </span><span class="hll"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">tfwatcher</span>
+<span class="linenos"> 2</span>
+<span class="hll"><span class="linenos"> 3</span><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">PredictEnd</span><span class="p">()</span>
+</span><span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 6</span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 7</span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="c1"># metrics which will be logged</span>
+<span class="linenos"> 9</span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="linenos">10</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="hll"><span class="linenos">12</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
 </span></pre></div>
 </div>
 </div>
@@ -402,7 +402,7 @@ logs during the start of an epoch, defaults to None</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="tfwatcher.callbacks.predict_batch.PredictBatchEnd">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tfwatcher.callbacks.predict_batch.</span></span><span class="sig-name descname"><span class="pre">PredictBatchEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_logs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tfwatcher/callbacks/predict_batch.html#PredictBatchEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfwatcher.callbacks.predict_batch.PredictBatchEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.Callback</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.callbacks.Callback</span></code></p>
 <p>This class is a subclass of the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback">tf.keras.callbacks.Callback</a>
 abstract base class and overrides the methods <a class="reference internal" href="#tfwatcher.callbacks.predict_batch.PredictBatchEnd.on_predict_batch_begin" title="tfwatcher.callbacks.predict_batch.PredictBatchEnd.on_predict_batch_begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_predict_batch_begin()</span></code></a> and <a class="reference internal" href="#tfwatcher.callbacks.predict_batch.PredictBatchEnd.on_predict_batch_end" title="tfwatcher.callbacks.predict_batch.PredictBatchEnd.on_predict_batch_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_predict_batch_end()</span></code></a>
 allowing loging after batches in <code class="docutils literal notranslate"><span class="pre">predict</span></code> method. This class also uses the
@@ -413,19 +413,19 @@ granular control for each batch in <code class="docutils literal notranslate"><s
 <p>Example:</p>
 <div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-text">Logging data after every batch in predict methods</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">tfwatcher</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
-<span class="lineno"> 4 </span><span class="hll"><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">PredictBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<span class="lineno"> 7 </span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 9 </span>    <span class="c1"># metrics which will be logged</span>
-<span class="lineno">10 </span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
-<span class="lineno">11 </span><span class="p">)</span>
-<span class="lineno">12 </span>
-<span class="lineno">13 </span><span class="hll"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">tfwatcher</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">PredictBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="c1"># metrics which will be logged</span>
+<span class="linenos">10</span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="linenos">11</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
 </span></pre></div>
 </div>
 </div>
@@ -498,7 +498,7 @@ using the <a class="reference internal" href="tfwatcher.html#module-tfwatcher.fi
 <dl class="py class">
 <dt class="sig sig-object py" id="tfwatcher.callbacks.test_batch.TestBatchEnd">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tfwatcher.callbacks.test_batch.</span></span><span class="sig-name descname"><span class="pre">TestBatchEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_logs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tfwatcher/callbacks/test_batch.html#TestBatchEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfwatcher.callbacks.test_batch.TestBatchEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.Callback</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.callbacks.Callback</span></code></p>
 <p>This class is a subclass of the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback">tf.keras.callbacks.Callback</a>
 abstract base class and overrides the methods <a class="reference internal" href="#tfwatcher.callbacks.test_batch.TestBatchEnd.on_test_batch_begin" title="tfwatcher.callbacks.test_batch.TestBatchEnd.on_test_batch_begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_test_batch_begin()</span></code></a> and <a class="reference internal" href="#tfwatcher.callbacks.test_batch.TestBatchEnd.on_test_batch_end" title="tfwatcher.callbacks.test_batch.TestBatchEnd.on_test_batch_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_test_batch_end()</span></code></a>
 allowing loging after batches in <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> methods and at the beginning of a
@@ -510,19 +510,19 @@ granular control for each batch in <code class="docutils literal notranslate"><s
 <p>Example:</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">Logging data after every batch in evaluate methods</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">tfwatcher</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
-<span class="lineno"> 4 </span><span class="hll"><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TestBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<span class="lineno"> 7 </span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 9 </span>    <span class="c1"># metrics which will be logged</span>
-<span class="lineno">10 </span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
-<span class="lineno">11 </span><span class="p">)</span>
-<span class="lineno">12 </span>
-<span class="lineno">13 </span><span class="hll"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">tfwatcher</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TestBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="c1"># metrics which will be logged</span>
+<span class="linenos">10</span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="linenos">11</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
 </span></pre></div>
 </div>
 </div>
@@ -599,7 +599,7 @@ time taken and pushes it to Firebase using the <a class="reference internal" hre
 <dl class="py class">
 <dt class="sig sig-object py" id="tfwatcher.callbacks.train_batch.TrainBatchEnd">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tfwatcher.callbacks.train_batch.</span></span><span class="sig-name descname"><span class="pre">TrainBatchEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_logs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tfwatcher/callbacks/train_batch.html#TrainBatchEnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tfwatcher.callbacks.train_batch.TrainBatchEnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.callbacks.Callback</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.keras.callbacks.Callback</span></code></p>
 <p>This class is a subclass of the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback">tf.keras.callbacks.Callback</a>
 abstract base class and overrides the methods <a class="reference internal" href="#tfwatcher.callbacks.train_batch.TrainBatchEnd.on_train_batch_begin" title="tfwatcher.callbacks.train_batch.TrainBatchEnd.on_train_batch_begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_train_batch_begin()</span></code></a> and <a class="reference internal" href="#tfwatcher.callbacks.train_batch.TrainBatchEnd.on_train_batch_end" title="tfwatcher.callbacks.train_batch.TrainBatchEnd.on_train_batch_end"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_train_batch_end()</span></code></a>
 allowing loging after a training batch in fit methods. This class
@@ -610,19 +610,19 @@ granular control for each batch in fit methods.</p>
 <p>Example:</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Logging data after every batch in fit methods</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">tfwatcher</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
-<span class="lineno"> 4 </span><span class="hll"><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TrainBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<span class="lineno"> 7 </span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 8 </span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
-<span class="lineno"> 9 </span>    <span class="c1"># metrics which will be logged</span>
-<span class="lineno">10 </span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
-<span class="lineno">11 </span><span class="p">)</span>
-<span class="lineno">12 </span>
-<span class="lineno">13 </span><span class="hll"><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">tfwatcher</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># here we specify schedule = 1 to log after every batch</span>
+<span class="hll"><span class="linenos"> 4</span><span class="n">monitor_callback</span> <span class="o">=</span> <span class="n">tfwatcher</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TrainBatchEnd</span><span class="p">(</span><span class="n">schedule</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="linenos"> 7</span>    <span class="n">optimizer</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 8</span>    <span class="n">loss</span><span class="o">=...</span><span class="p">,</span>
+<span class="linenos"> 9</span>    <span class="c1"># metrics which will be logged</span>
+<span class="linenos">10</span>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="linenos">11</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="hll"><span class="linenos">13</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">monitor_callback</span><span class="p">])</span>
 </span></pre></div>
 </div>
 </div>
