@@ -1,3 +1,5 @@
+![](media/cover.png)
+
 # TF Watcher [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTF-Watcher)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FRishit-dagli%2FTF-Watcher)
 
 [![PyPI](https://img.shields.io/pypi/v/tf-watcher)](https://pypi.org/project/tf-watcher/)
