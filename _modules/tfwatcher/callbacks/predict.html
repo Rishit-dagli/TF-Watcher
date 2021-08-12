@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tfwatcher.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../webapp.html">Using the Web App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../TF-Watcher-Quickstart.html">Quickstart: TF Watcher</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors</a></li>
 </ul>
 
@@ -224,7 +225,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">print_logs</span> <span class="o">=</span> <span class="n">print_logs</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ref_id</span> <span class="o">=</span> <span class="n">random_char</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use this ID to monitor training for this session: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ref_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use this ID to monitor training for this session: </span><span class="si">{self.ref_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PredictEnd.on_predict_begin"><a class="viewcode-back" href="../../../tfwatcher.callbacks.html#tfwatcher.callbacks.predict.PredictEnd.on_predict_begin">[docs]</a>    <span class="k">def</span> <span class="nf">on_predict_begin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Overrides the `tf.keras.callbacks.Callback.on_predict_begin &lt;https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/Callback#on_predict_begin&gt;`_</span>
