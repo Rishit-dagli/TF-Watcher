@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>tfwatcher.firebase_helpers &mdash; TF Watcher 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/dark_mode_css/general.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/dark_mode_css/dark.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/dark_mode_js/default_light.js"></script>
+        <script src="../../_static/dark_mode_js/theme_switcher.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> TF Watcher
+          
+
+          
+            
+            <img src="../../_static/tf-watcher.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tfwatcher.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webapp.html">Using the Web App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Authors</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TF Watcher</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>tfwatcher.firebase_helpers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for tfwatcher.firebase_helpers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="kn">import</span> <span class="nn">pyrebase</span>
+
+<span class="kn">from</span> <span class="nn">.firebase_config</span> <span class="kn">import</span> <span class="n">get_firebase_config</span>
+
+
+<div class="viewcode-block" id="write_to_firebase"><a class="viewcode-back" href="../../tfwatcher.html#tfwatcher.firebase_helpers.write_to_firebase">[docs]</a><span class="k">def</span> <span class="nf">write_to_firebase</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ref_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Writes data to Firebase Realtime Database using</span>
+<span class="sd">    `Pyrebase &lt;https://github.com/thisbejim/Pyrebase&gt;`_ , a simple Python wrapper</span>
+<span class="sd">    around the Firebase API. This automatically fetches the Firebase Config from</span>
+<span class="sd">    :func:`firebase_config.get_firebase_config` .</span>
+
+<span class="sd">    :param data: A dictionary of the logging metrics, epoch number and average time</span>
+<span class="sd">        which are to be logged to Firebase</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param ref_id: A unique ID where the data would be pushed to on Firebase</span>
+<span class="sd">    :type ref_id: str</span>
+<span class="sd">    :param level: This should be either ``epoch``, ``batch`` or ``prediction``</span>
+<span class="sd">        corresponding to the level where the logs are collected. For ``prediction``,</span>
+<span class="sd">        the data would be pushed without the epoch or batch number it was collected on.</span>
+<span class="sd">    :type level: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># level can be epoch, batch, prediction</span>
+    <span class="n">firebase</span> <span class="o">=</span> <span class="n">pyrebase</span><span class="o">.</span><span class="n">initialize_app</span><span class="p">(</span><span class="n">get_firebase_config</span><span class="p">())</span>
+    <span class="n">log_db</span> <span class="o">=</span> <span class="n">firebase</span><span class="o">.</span><span class="n">database</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;prediction&quot;</span><span class="p">:</span>
+        <span class="n">log_db</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="n">ref_id</span><span class="p">)</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log_db</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="n">ref_id</span><span class="p">)</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">level</span><span class="p">])</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_in_callback"><a class="viewcode-back" href="../../tfwatcher.html#tfwatcher.firebase_helpers.write_in_callback">[docs]</a><span class="k">def</span> <span class="nf">write_in_callback</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ref_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A wrapper around :func:`write_to_firebase` to simply pass in</span>
+<span class="sd">    the ``data`` and a unique ID to write to Firebase Realtime database. It</span>
+<span class="sd">    automatically figures out the level at which logs were collected and calls the</span>
+<span class="sd">    :func:`write_to_firebase` function. This function is also used to</span>
+<span class="sd">    write data to Firebase in between callbacks (eg. the :class:`EpochEnd` class).</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This function is specially made to directly use in :obj:`callbacks` and does not</span>
+<span class="sd">        require using ``level`` argument which is automatically calculated for callback</span>
+<span class="sd">        classes.</span>
+
+<span class="sd">    :param data: A dictionary of the logging metrics, epoch number and average time</span>
+<span class="sd">        which are to be logged to Firebase</span>
+<span class="sd">    :type data: dict</span>
+<span class="sd">    :param ref_id: A unique ID where the data would be pushed to on Firebase</span>
+<span class="sd">    :type ref_id: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;epoch&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;batch&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;prediction&quot;</span>
+    <span class="k">elif</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;batch&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;epoch&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;batch&quot;</span>
+
+    <span class="n">write_to_firebase</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ref_id</span><span class="o">=</span><span class="n">ref_id</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="random_char"><a class="viewcode-back" href="../../tfwatcher.html#tfwatcher.firebase_helpers.random_char">[docs]</a><span class="k">def</span> <span class="nf">random_char</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A very simple function to help generate an arbitary length of pseudo random</span>
+<span class="sd">    letters to serve as a unique ID specific to the class through which metrics are</span>
+<span class="sd">    being logged. This is also the child under which the mtrics are logged in Firebase</span>
+<span class="sd">    Realtime database.</span>
+
+<span class="sd">    :param y: The length of the unique ID to be created</span>
+<span class="sd">    :type y: int</span>
+<span class="sd">    :return: A string of ``y`` pseudo random upper case and lower letters</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rishit Dagli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
