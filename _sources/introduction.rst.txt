@@ -9,7 +9,7 @@ Kaggle though this can pretty much be used on any machine or remote server.
 .. seealso::
 
     Checkout this quickstart example which you can run directly on Google Colab to get 
-    started with using this package: `Quickstart Example <TODO>`_
+    started with using this package: `Quickstart Example <https://rishit-dagli.github.io/TF-Watcher/TF-Watcher-Quickstart.html>`_
 
 To make this super easy to use and easily merge in with your development workflow we 
 make use of
@@ -35,4 +35,4 @@ way in a non-eager TensorFlow graph (``@tf.function``).
 .. seealso::
 
     Checkout all the end to end examples of using this package (can be run on Google 
-    Colab): TODO
+    Colab): https://rishit-dagli.github.io/TF-Watcher/TF-Watcher-Quickstart.html
