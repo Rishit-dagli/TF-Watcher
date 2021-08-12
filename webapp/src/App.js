@@ -8,6 +8,7 @@ import UserProvider from './providers/AuthProvider';
 import ChartScreen from './screens/ChartScreen';
 import HomeScreen from './screens/HomeScreen';
 import PageNotFound from './screens/404Screen';
+import './css/styles.css';
 
 const App = () => (
   <UserProvider>

@@ -97,12 +97,14 @@ const ChartScreen = () => {
       >
         <Text fontSize="xl" marginTop="4" fontWeight="semibold" color="gray.300">Real-time logs</Text>
         <Button
-          colorScheme="whiteAlpha"
-          color="purple.200"
-          paddingX="8"
-          variant="outline"
+          bgColor="purple.600"
+          color="white"
+          paddingX="5"
           onClick={shareLink}
           leftIcon={<FaShareAlt />}
+          className="share-btn"
+          size="sm"
+          marginTop="4"
         >
           Share link
         </Button>
@@ -114,6 +116,7 @@ const ChartScreen = () => {
         paddingInlineEnd="0"
         paddingInlineStart="0"
         color="white"
+        paddingTop="8"
       >
         <Footer />
       </Container>
