@@ -42,7 +42,6 @@ Quick Links
    installation
    tfwatcher
    webapp
-   TF-Watcher-Quickstart
    authors
 
 Indices and tables
