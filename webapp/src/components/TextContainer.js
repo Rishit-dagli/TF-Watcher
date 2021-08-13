@@ -38,15 +38,17 @@ const TextContainer = () => (
           Documentation
         </Button>
       </a>
-      <Button
-        bgColor="gray.700"
-        width="48"
-        boxShadow="lg"
-        leftIcon={<FaRocket />}
-        className="btn"
-      >
-        Quickstart
-      </Button>
+      <a href="https://rishit-dagli.github.io/TF-Watcher/TF-Watcher-Quickstart.html" target="_blank" rel="noreferrer">
+        <Button
+          bgColor="gray.700"
+          width="48"
+          boxShadow="lg"
+          leftIcon={<FaRocket />}
+          className="btn"
+        >
+          Quickstart
+        </Button>
+      </a>
     </Flex>
   </Container>
 );
