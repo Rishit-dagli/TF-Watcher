@@ -43,7 +43,7 @@ export function register(config) {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service '
-              + 'worker. To learn more, visit https://cra.link/PWA',
+              + 'worker.',
           );
         });
       } else {
@@ -72,7 +72,7 @@ function registerValidSW(swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all '
-                  + 'tabs for this page are closed. See https://cra.link/PWA.',
+                  + 'tabs for this page are closed',
               );
 
               // Execute callback
