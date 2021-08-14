@@ -4,6 +4,8 @@
 
 # TF Watcher (Webapp)
 
+[![Azure Static Web Apps CI/CD](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/azure-static-web-apps-ashy-ocean-0e69e8700.yml/badge.svg)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/azure-static-web-apps-ashy-ocean-0e69e8700.yml)
+
 _**TF Watcher Webapp**_ is built with React, Chakra-UI and Firebase SDK.
 The main aim of this application is to monitor ML training or testing process. It is connected with Firebase, to get
 real time updates and show graphs for the same.

@@ -5,7 +5,7 @@
 
 # TF Watcher (Python Package)
 
-[![Upload Python Package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml)
+[![Upload Python Package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml)
 [![Test Python package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml)
 
 _**TF Watcher Python Package**_ is built with TensorFlow and Pyrebase (a python wrapper for the Firebase🔥 API). 

@@ -4,6 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/tf-watcher)](https://pypi.org/project/tf-watcher/)
 [![Test Python package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/tests.yml)
+[![Upload Python Package](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/python-publish.yml)
 [![Build Docs](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/sphinx-ci.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/sphinx-ci.yml)
 [![Lint Code Base](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/linter.yml/badge.svg?branch=main)](https://github.com/Rishit-dagli/TF-Watcher/actions/workflows/linter.yml)
 
