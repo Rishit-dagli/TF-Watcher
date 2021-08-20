@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Quickstart: TF Watcher &mdash; TF Watcher 0.1.1 documentation</title>
+  <title>Quick Start: TF Watcher &mdash; TF Watcher 0.1.1 documentation</title>
   
 
   
@@ -103,11 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tfwatcher.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webapp.html">Using the Web App</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart: TF Watcher</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start: TF Watcher</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Setup">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Get-the-data">Get the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Some-preprocessing">Some preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Create-a-model">Create a model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Create-a-simple-model">Create a simple model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Use-TF-Watcher-while-training">Use TF Watcher while training</a></li>
 </ul>
 </li>
@@ -160,7 +159,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Quickstart: TF Watcher</li>
+      <li>Quick Start: TF Watcher</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -450,20 +449,21 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <p><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
-<div class="section" id="Quickstart:-TF-Watcher">
-<h1>Quickstart: TF Watcher<a class="headerlink" href="#Quickstart:-TF-Watcher" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Quick-Start:-TF-Watcher">
+<h1>Quick Start: TF Watcher<a class="headerlink" href="#Quick-Start:-TF-Watcher" title="Permalink to this headline">¶</a></h1>
 <p><img alt="image0" src="https://i.imgur.com/C1EuWC2.png" /></p>
-<p>This example serves as a quickstart for the TF Watcher project. <strong>TF Watcher</strong> is a simple to use Python package and web app which allows you to monitor 👀 your Machine Learning training or testing process on mobile devices 📱 built specially for Google Colab, Azure ML and Kaggle. Dedicated to all ML Developers with ❤️.</p>
-<p>If you find this useful please consider giving a ⭐ to <a class="reference external" href="https://github.com/Rishit-dagli/TF-Watcher">the repo</a>.</p>
-<p>In this example we’ll use the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/datasets/fashion_mnist">Fashion MNIST dataset</a> by Laurence Moroney to serve as a quickstart.</p>
+<p>What if you could monitor your Machine Learning jobs on Colab, Kaggle, AzureML, or pretty much anywhere on your mobile phones, so you could monitor your models on the fly. Even while taking a walk🚶in &lt; 5 lines of code!</p>
+<p>Consider giving a star⭐ to <a class="reference external" href="https://github.com/Rishit-dagli/TF-Watcher">the project</a> if you like it.</p>
+<p>In this example we’ll use the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/datasets/fashion_mnist">Fashion MNIST dataset</a> to serve as a quickstart.</p>
 <div class="section" id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Permalink to this headline">¶</a></h2>
+<p>We start off by installing TF Watcher from PyPI.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span>!pip install tf-watcher==0.1.1
+<span></span>!pip install tf-watcher
 </pre></div>
 </div>
 </div>
@@ -472,82 +472,102 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Collecting tf-watcher==0.1.1
+Collecting tf-watcher
   Downloading tf_watcher-0.1.1-py3-none-any.whl (22 kB)
-Requirement already satisfied: tensorflow~=2.5.0 in /usr/local/lib/python3.7/dist-packages (from tf-watcher==0.1.1) (2.5.0)
 Collecting pyrebase4~=4.5.0
   Downloading Pyrebase4-4.5.0-py3-none-any.whl (8.9 kB)
-Requirement already satisfied: requests&gt;=2.19.1 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.23.0)
-Requirement already satisfied: oauth2client&gt;=4.1.2 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (4.1.3)
-Collecting gcloud&gt;=0.18.3
-  Downloading gcloud-0.18.3.tar.gz (454 kB)
-     |████████████████████████████████| 454 kB 9.0 MB/s
-Collecting python-jwt&gt;=2.0.1
-  Downloading python_jwt-3.3.0-py2.py3-none-any.whl (6.8 kB)
-Collecting requests-toolbelt&gt;=0.7.1
-  Downloading requests_toolbelt-0.9.1-py2.py3-none-any.whl (54 kB)
-     |████████████████████████████████| 54 kB 3.8 MB/s
+Collecting tensorflow~=2.5.0
+  Downloading tensorflow-2.5.1-cp37-cp37m-manylinux2010_x86_64.whl (454.4 MB)
+     |████████████████████████████████| 454.4 MB 8.9 kB/s
 Collecting pycryptodome&gt;=3.6.4
   Downloading pycryptodome-3.10.1-cp35-abi3-manylinux2010_x86_64.whl (1.9 MB)
-     |████████████████████████████████| 1.9 MB 46.4 MB/s
-Requirement already satisfied: httplib2&gt;=0.9.1 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.17.4)
-Requirement already satisfied: googleapis-common-protos in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.53.0)
-Requirement already satisfied: protobuf!=3.0.0.b2.post1,&gt;=3.0.0b2 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (3.17.3)
-Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.15.0)
-Requirement already satisfied: pyasn1&gt;=0.1.7 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.4.8)
-Requirement already satisfied: rsa&gt;=3.1.4 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (4.7.2)
-Requirement already satisfied: pyasn1-modules&gt;=0.0.5 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (0.2.8)
+     |████████████████████████████████| 1.9 MB 66.0 MB/s
+Collecting requests-toolbelt&gt;=0.7.1
+  Downloading requests_toolbelt-0.9.1-py2.py3-none-any.whl (54 kB)
+     |████████████████████████████████| 54 kB 2.1 MB/s
+Requirement already satisfied: oauth2client&gt;=4.1.2 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher) (4.1.3)
+Requirement already satisfied: requests&gt;=2.19.1 in /usr/local/lib/python3.7/dist-packages (from pyrebase4~=4.5.0-&gt;tf-watcher) (2.23.0)
+Collecting python-jwt&gt;=2.0.1
+  Downloading python_jwt-3.3.0-py2.py3-none-any.whl (6.8 kB)
+Collecting gcloud&gt;=0.18.3
+  Downloading gcloud-0.18.3.tar.gz (454 kB)
+     |████████████████████████████████| 454 kB 53.1 MB/s
+Requirement already satisfied: httplib2&gt;=0.9.1 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (0.17.4)
+Requirement already satisfied: googleapis-common-protos in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (1.53.0)
+Requirement already satisfied: protobuf!=3.0.0.b2.post1,&gt;=3.0.0b2 in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (3.17.3)
+Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from gcloud&gt;=0.18.3-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (1.15.0)
+Requirement already satisfied: rsa&gt;=3.1.4 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (4.7.2)
+Requirement already satisfied: pyasn1&gt;=0.1.7 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (0.4.8)
+Requirement already satisfied: pyasn1-modules&gt;=0.0.5 in /usr/local/lib/python3.7/dist-packages (from oauth2client&gt;=4.1.2-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (0.2.8)
 Collecting jwcrypto&gt;=0.8
   Downloading jwcrypto-1.0-py2.py3-none-any.whl (82 kB)
-     |████████████████████████████████| 82 kB 1.4 MB/s
+     |████████████████████████████████| 82 kB 900 kB/s
 Collecting deprecated
   Downloading Deprecated-1.2.12-py2.py3-none-any.whl (9.5 kB)
 Collecting cryptography&gt;=2.3
   Downloading cryptography-3.4.7-cp36-abi3-manylinux2014_x86_64.whl (3.2 MB)
-     |████████████████████████████████| 3.2 MB 60.0 MB/s
-Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.14.6)
-Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.20)
-Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (3.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2021.5.30)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (2.10)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher==0.1.1) (1.24.3)
-Requirement already satisfied: keras-nightly~=2.5.0.dev in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0.dev2021032900)
-Requirement already satisfied: tensorboard~=2.5 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0)
-Requirement already satisfied: wheel~=0.35 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.36.2)
-Requirement already satisfied: gast==0.4.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.4.0)
-Requirement already satisfied: tensorflow-estimator&lt;2.6.0,&gt;=2.5.0rc0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (2.5.0)
-Requirement already satisfied: termcolor~=1.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.1.0)
-Requirement already satisfied: opt-einsum~=3.3.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.3.0)
-Requirement already satisfied: flatbuffers~=1.12.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.12)
-Requirement already satisfied: wrapt~=1.12.1 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.12.1)
-Requirement already satisfied: astunparse~=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.6.3)
-Requirement already satisfied: numpy~=1.19.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.19.5)
-Requirement already satisfied: absl-py~=0.10 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.12.0)
-Requirement already satisfied: typing-extensions~=3.7.4 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.7.4.3)
-Requirement already satisfied: h5py~=3.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.1.0)
-Requirement already satisfied: keras-preprocessing~=1.1.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.1.2)
-Requirement already satisfied: grpcio~=1.34.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.34.1)
-Requirement already satisfied: google-pasta~=0.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.2.0)
-Requirement already satisfied: cached-property in /usr/local/lib/python3.7/dist-packages (from h5py~=3.1.0-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.5.2)
-Requirement already satisfied: werkzeug&gt;=0.11.15 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.0.1)
-Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.8.0)
-Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.32.1)
-Requirement already satisfied: setuptools&gt;=41.0.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (57.2.0)
-Requirement already satisfied: tensorboard-data-server&lt;0.7.0,&gt;=0.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.6.1)
-Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (0.4.4)
-Requirement already satisfied: markdown&gt;=2.6.8 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.3.4)
-Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (4.2.2)
-Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /usr/local/lib/python3.7/dist-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (1.3.0)
-Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.7/dist-packages (from markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (4.6.1)
-Requirement already satisfied: oauthlib&gt;=3.0.0 in /usr/local/lib/python3.7/dist-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.1.1)
-Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from importlib-metadata-&gt;markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher==0.1.1) (3.5.0)
+     |████████████████████████████████| 3.2 MB 41.4 MB/s
+Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.7/dist-packages (from cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (1.14.6)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.3-&gt;jwcrypto&gt;=0.8-&gt;python-jwt&gt;=2.0.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (2.20)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (2021.5.30)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.19.1-&gt;pyrebase4~=4.5.0-&gt;tf-watcher) (1.24.3)
+Collecting keras-nightly~=2.5.0.dev
+  Downloading keras_nightly-2.5.0.dev2021032900-py2.py3-none-any.whl (1.2 MB)
+     |████████████████████████████████| 1.2 MB 68.9 MB/s
+Requirement already satisfied: numpy~=1.19.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.19.5)
+Requirement already satisfied: opt-einsum~=3.3.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (3.3.0)
+Requirement already satisfied: google-pasta~=0.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (0.2.0)
+Requirement already satisfied: tensorboard~=2.5 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (2.6.0)
+Collecting tensorflow-estimator&lt;2.6.0,&gt;=2.5.0
+  Downloading tensorflow_estimator-2.5.0-py2.py3-none-any.whl (462 kB)
+     |████████████████████████████████| 462 kB 74.3 MB/s
+Requirement already satisfied: absl-py~=0.10 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (0.12.0)
+Collecting grpcio~=1.34.0
+  Downloading grpcio-1.34.1-cp37-cp37m-manylinux2014_x86_64.whl (4.0 MB)
+     |████████████████████████████████| 4.0 MB 41.3 MB/s
+Requirement already satisfied: typing-extensions~=3.7.4 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (3.7.4.3)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.1.2)
+Requirement already satisfied: termcolor~=1.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.1.0)
+Requirement already satisfied: astunparse~=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.6.3)
+Requirement already satisfied: flatbuffers~=1.12.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.12)
+Requirement already satisfied: h5py~=3.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (3.1.0)
+Requirement already satisfied: gast==0.4.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (0.4.0)
+Requirement already satisfied: wrapt~=1.12.1 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (1.12.1)
+Requirement already satisfied: wheel~=0.35 in /usr/local/lib/python3.7/dist-packages (from tensorflow~=2.5.0-&gt;tf-watcher) (0.37.0)
+Requirement already satisfied: cached-property in /usr/local/lib/python3.7/dist-packages (from h5py~=3.1.0-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (1.5.2)
+Requirement already satisfied: tensorboard-data-server&lt;0.7.0,&gt;=0.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (0.6.1)
+Requirement already satisfied: setuptools&gt;=41.0.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (57.4.0)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (0.4.5)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (1.8.0)
+Requirement already satisfied: werkzeug&gt;=0.11.15 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (1.0.1)
+Requirement already satisfied: markdown&gt;=2.6.8 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (3.3.4)
+Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (1.34.0)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (4.2.2)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /usr/local/lib/python3.7/dist-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (1.3.0)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.7/dist-packages (from markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (4.6.4)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /usr/local/lib/python3.7/dist-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (3.1.1)
+Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from importlib-metadata-&gt;markdown&gt;=2.6.8-&gt;tensorboard~=2.5-&gt;tensorflow~=2.5.0-&gt;tf-watcher) (3.5.0)
 Building wheels for collected packages: gcloud
   Building wheel for gcloud (setup.py) ... done
-  Created wheel for gcloud: filename=gcloud-0.18.3-py3-none-any.whl size=602937 sha256=e3a3ff716ff76d8f061c8fc979069ea8a50bb09d084aa0d9ccfc48585f2fb6c5
+  Created wheel for gcloud: filename=gcloud-0.18.3-py3-none-any.whl size=602936 sha256=207e73d727a7400f3c987feb991b513d6d82ec58ce461b1ae54dc4284ccc2c94
   Stored in directory: /root/.cache/pip/wheels/50/9d/19/dc1a639905431252dbf8a61388a83459c5cfef7add445bebe4
 Successfully built gcloud
-Installing collected packages: deprecated, cryptography, jwcrypto, requests-toolbelt, python-jwt, pycryptodome, gcloud, pyrebase4, tf-watcher
-Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 jwcrypto-1.0 pycryptodome-3.10.1 pyrebase4-4.5.0 python-jwt-3.3.0 requests-toolbelt-0.9.1 tf-watcher-0.1.1
+Installing collected packages: deprecated, cryptography, jwcrypto, grpcio, tensorflow-estimator, requests-toolbelt, python-jwt, pycryptodome, keras-nightly, gcloud, tensorflow, pyrebase4, tf-watcher
+  Attempting uninstall: grpcio
+    Found existing installation: grpcio 1.39.0
+    Uninstalling grpcio-1.39.0:
+      Successfully uninstalled grpcio-1.39.0
+  Attempting uninstall: tensorflow-estimator
+    Found existing installation: tensorflow-estimator 2.6.0
+    Uninstalling tensorflow-estimator-2.6.0:
+      Successfully uninstalled tensorflow-estimator-2.6.0
+  Attempting uninstall: tensorflow
+    Found existing installation: tensorflow 2.6.0
+    Uninstalling tensorflow-2.6.0:
+      Successfully uninstalled tensorflow-2.6.0
+Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 grpcio-1.34.1 jwcrypto-1.0 keras-nightly-2.5.0.dev2021032900 pycryptodome-3.10.1 pyrebase4-4.5.0 python-jwt-3.3.0 requests-toolbelt-0.9.1 tensorflow-2.5.1 tensorflow-estimator-2.5.0 tf-watcher-0.1.1
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -556,6 +576,7 @@ Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 jwcryp
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
 <span class="kn">import</span> <span class="nn">tfwatcher</span>
 </pre></div>
 </div>
@@ -568,11 +589,8 @@ Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 jwcryp
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span>
-<span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-
-<span class="n">training_images</span> <span class="o">=</span> <span class="n">training_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Training images</span>
-<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Testing images</span>
+<span></span><span class="c1"># Load example MNIST data and pre-process it</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -581,69 +599,58 @@ Successfully installed cryptography-3.4.7 deprecated-1.2.12 gcloud-0.18.3 jwcryp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
-32768/29515 [=================================] - 0s 0us/step
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
-26427392/26421880 [==============================] - 0s 0us/step
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
-8192/5148 [===============================================] - 0s 0us/step
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
-4423680/4422102 [==============================] - 0s 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+11493376/11490434 [==============================] - 0s 0us/step
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Some-preprocessing">
-<h2>Some preprocessing<a class="headerlink" href="#Some-preprocessing" title="Permalink to this headline">¶</a></h2>
-<p>Since this is a very simple dataset to work with very little pre-processing would be required. We will divide all pixel values with 255 to covert them from the range 0 - 255 to 0 - 1. As Neural Nets tend to work better with normalized data.</p>
+<p>Some simple pre-processing</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">training_images</span> <span class="o">=</span> <span class="n">training_images</span> <span class="o">/</span> <span class="mf">255.0</span>
-<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Limit the data to 1000 samples</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Create-a-model">
-<h2>Create a model<a class="headerlink" href="#Create-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Create-a-simple-model">
+<h2>Create a simple model<a class="headerlink" href="#Create-a-simple-model" title="Permalink to this headline">¶</a></h2>
+<p>Note the <code class="docutils literal notranslate"><span class="pre">metrics</span></code> argument in <code class="docutils literal notranslate"><span class="pre">model.compile</span></code>, specify any additional metrics you want to log from here.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
-  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
-<span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-              <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
-              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c1"># Add the metrics you want to monitor</span>
+<span></span><span class="c1"># Define the Keras model to add callbacks to</span>
+<span class="k">def</span> <span class="nf">get_model</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mean_squared_error&quot;</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Use-TF-Watcher-while-training">
 <h2>Use TF Watcher while training<a class="headerlink" href="#Use-TF-Watcher-while-training" title="Permalink to this headline">¶</a></h2>
-<p>We pass in <code class="docutils literal notranslate"><span class="pre">schedule</span></code> as 1 to monitor after every epoch</p>
+<ul class="simple">
+<li><p>We use the <code class="docutils literal notranslate"><span class="pre">EpochEnd</span></code> class from TF Watcher to specify we are interested in operating in the epoch level</p></li>
+<li><p>We pass in <code class="docutils literal notranslate"><span class="pre">schedule</span></code> as 1 to monitor after every epoch. You could pass in this as 3 to monitor after every 3 epochs or also pass in a list of the specific epoch number you want to monitor on</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
@@ -656,16 +663,24 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Use this ID to monitor training for this session: lowBKYU
+Use this ID to monitor training for this session: ybhzyxK
 </pre></div></div>
 </div>
-<p>Use this ID in <a class="reference external" href="https://www.tfwatcher.tech">https://www.tfwatcher.tech</a></p>
+<p>We will now use this ID on <a class="reference external" href="https://www.tfwatcher.tech">https://www.tfwatcher.tech</a> to monitor our model</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre>
-<span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">MonitorCallback</span><span class="p">])</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">()</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">x_train</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">MonitorCallback</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -674,41 +689,208 @@ Use this ID to monitor training for this session: lowBKYU
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 1/15
-1875/1875 [==============================] - 37s 3ms/step - loss: 0.4598 - accuracy: 0.8318
-Epoch 2/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.3002 - accuracy: 0.8895
-Epoch 3/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.2556 - accuracy: 0.9050
-Epoch 4/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.2243 - accuracy: 0.9168
-Epoch 5/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1963 - accuracy: 0.9257
-Epoch 6/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1756 - accuracy: 0.9338
-Epoch 7/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1568 - accuracy: 0.9412
-Epoch 8/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1398 - accuracy: 0.9468
-Epoch 9/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1262 - accuracy: 0.9525
-Epoch 10/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.1110 - accuracy: 0.9576
-Epoch 11/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.0989 - accuracy: 0.9627
-Epoch 12/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.0900 - accuracy: 0.9657
-Epoch 13/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.0806 - accuracy: 0.9695
-Epoch 14/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.0742 - accuracy: 0.9719
-Epoch 15/15
-1875/1875 [==============================] - 5s 3ms/step - loss: 0.0689 - accuracy: 0.9742
+Epoch 1/100
+4/4 [==============================] - 1s 58ms/step - loss: 220.0279 - accuracy: 0.1400 - val_loss: 7.1787 - val_accuracy: 0.1000
+Epoch 2/100
+4/4 [==============================] - 0s 9ms/step - loss: 5.8449 - accuracy: 0.1400 - val_loss: 5.6531 - val_accuracy: 0.1240
+Epoch 3/100
+4/4 [==============================] - 0s 10ms/step - loss: 4.3850 - accuracy: 0.1580 - val_loss: 4.7036 - val_accuracy: 0.1160
+Epoch 4/100
+4/4 [==============================] - 0s 9ms/step - loss: 3.6359 - accuracy: 0.1700 - val_loss: 5.1514 - val_accuracy: 0.1040
+Epoch 5/100
+4/4 [==============================] - 0s 10ms/step - loss: 22.7958 - accuracy: 0.1500 - val_loss: 94.3385 - val_accuracy: 0.1000
+Epoch 6/100
+4/4 [==============================] - 0s 11ms/step - loss: 66.1149 - accuracy: 0.1160 - val_loss: 38.9990 - val_accuracy: 0.1000
+Epoch 7/100
+4/4 [==============================] - 0s 10ms/step - loss: 23.7571 - accuracy: 0.1280 - val_loss: 16.4039 - val_accuracy: 0.1000
+Epoch 8/100
+4/4 [==============================] - 0s 9ms/step - loss: 16.1609 - accuracy: 0.1080 - val_loss: 31.8129 - val_accuracy: 0.1000
+Epoch 9/100
+4/4 [==============================] - 0s 10ms/step - loss: 36.0135 - accuracy: 0.1200 - val_loss: 47.4181 - val_accuracy: 0.1000
+Epoch 10/100
+4/4 [==============================] - 0s 10ms/step - loss: 38.0579 - accuracy: 0.1220 - val_loss: 24.0960 - val_accuracy: 0.1000
+Epoch 11/100
+4/4 [==============================] - 0s 10ms/step - loss: 23.2553 - accuracy: 0.1040 - val_loss: 24.5393 - val_accuracy: 0.1000
+Epoch 12/100
+4/4 [==============================] - 0s 9ms/step - loss: 25.9761 - accuracy: 0.1180 - val_loss: 43.4903 - val_accuracy: 0.1000
+Epoch 13/100
+4/4 [==============================] - 0s 9ms/step - loss: 36.0534 - accuracy: 0.1320 - val_loss: 27.3967 - val_accuracy: 0.1000
+Epoch 14/100
+4/4 [==============================] - 0s 9ms/step - loss: 23.6804 - accuracy: 0.1200 - val_loss: 30.0495 - val_accuracy: 0.1000
+Epoch 15/100
+4/4 [==============================] - 0s 9ms/step - loss: 34.2381 - accuracy: 0.1220 - val_loss: 41.0987 - val_accuracy: 0.1000
+Epoch 16/100
+4/4 [==============================] - 0s 9ms/step - loss: 28.6988 - accuracy: 0.1220 - val_loss: 38.2743 - val_accuracy: 0.1000
+Epoch 17/100
+4/4 [==============================] - 0s 9ms/step - loss: 29.1761 - accuracy: 0.1180 - val_loss: 38.2930 - val_accuracy: 0.1000
+Epoch 18/100
+4/4 [==============================] - 0s 11ms/step - loss: 29.0422 - accuracy: 0.1320 - val_loss: 33.8774 - val_accuracy: 0.1000
+Epoch 19/100
+4/4 [==============================] - 0s 10ms/step - loss: 25.2365 - accuracy: 0.1360 - val_loss: 36.8045 - val_accuracy: 0.1000
+Epoch 20/100
+4/4 [==============================] - 0s 9ms/step - loss: 33.1871 - accuracy: 0.1080 - val_loss: 35.7805 - val_accuracy: 0.1000
+Epoch 21/100
+4/4 [==============================] - 0s 15ms/step - loss: 30.1454 - accuracy: 0.1140 - val_loss: 29.5536 - val_accuracy: 0.1000
+Epoch 22/100
+4/4 [==============================] - 0s 11ms/step - loss: 24.0112 - accuracy: 0.1120 - val_loss: 30.0866 - val_accuracy: 0.1000
+Epoch 23/100
+4/4 [==============================] - 0s 10ms/step - loss: 34.7015 - accuracy: 0.1040 - val_loss: 29.4295 - val_accuracy: 0.1000
+Epoch 24/100
+4/4 [==============================] - 0s 10ms/step - loss: 24.5739 - accuracy: 0.1340 - val_loss: 23.0243 - val_accuracy: 0.1000
+Epoch 25/100
+4/4 [==============================] - 0s 10ms/step - loss: 20.7962 - accuracy: 0.1360 - val_loss: 50.8549 - val_accuracy: 0.1000
+Epoch 26/100
+4/4 [==============================] - 0s 15ms/step - loss: 41.6597 - accuracy: 0.1160 - val_loss: 32.8466 - val_accuracy: 0.1000
+Epoch 27/100
+4/4 [==============================] - 0s 14ms/step - loss: 26.6706 - accuracy: 0.1260 - val_loss: 31.4648 - val_accuracy: 0.1000
+Epoch 28/100
+4/4 [==============================] - 0s 12ms/step - loss: 28.9898 - accuracy: 0.1060 - val_loss: 34.4348 - val_accuracy: 0.1000
+Epoch 29/100
+4/4 [==============================] - 0s 10ms/step - loss: 32.6081 - accuracy: 0.1180 - val_loss: 37.6328 - val_accuracy: 0.1000
+Epoch 30/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.6324 - accuracy: 0.1340 - val_loss: 26.2719 - val_accuracy: 0.1000
+Epoch 31/100
+4/4 [==============================] - 0s 12ms/step - loss: 17.5867 - accuracy: 0.1200 - val_loss: 32.1177 - val_accuracy: 0.1000
+Epoch 32/100
+4/4 [==============================] - 0s 10ms/step - loss: 34.4390 - accuracy: 0.1240 - val_loss: 46.8234 - val_accuracy: 0.1000
+Epoch 33/100
+4/4 [==============================] - 0s 15ms/step - loss: 35.8227 - accuracy: 0.1020 - val_loss: 24.2219 - val_accuracy: 0.1000
+Epoch 34/100
+4/4 [==============================] - 0s 10ms/step - loss: 19.7204 - accuracy: 0.1160 - val_loss: 32.0298 - val_accuracy: 0.1000
+Epoch 35/100
+4/4 [==============================] - 0s 12ms/step - loss: 34.6682 - accuracy: 0.1300 - val_loss: 43.5553 - val_accuracy: 0.1000
+Epoch 36/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.7967 - accuracy: 0.1360 - val_loss: 35.5064 - val_accuracy: 0.1000
+Epoch 37/100
+4/4 [==============================] - 0s 10ms/step - loss: 24.1768 - accuracy: 0.1060 - val_loss: 33.8834 - val_accuracy: 0.1000
+Epoch 38/100
+4/4 [==============================] - 0s 13ms/step - loss: 35.0535 - accuracy: 0.0980 - val_loss: 33.7792 - val_accuracy: 0.1000
+Epoch 39/100
+4/4 [==============================] - 0s 9ms/step - loss: 27.3413 - accuracy: 0.1040 - val_loss: 26.7047 - val_accuracy: 0.1000
+Epoch 40/100
+4/4 [==============================] - 0s 9ms/step - loss: 26.9778 - accuracy: 0.1180 - val_loss: 34.2578 - val_accuracy: 0.1000
+Epoch 41/100
+4/4 [==============================] - 0s 10ms/step - loss: 28.9345 - accuracy: 0.0940 - val_loss: 38.9659 - val_accuracy: 0.1000
+Epoch 42/100
+4/4 [==============================] - 0s 11ms/step - loss: 31.8423 - accuracy: 0.1180 - val_loss: 33.2312 - val_accuracy: 0.1000
+Epoch 43/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.6944 - accuracy: 0.1100 - val_loss: 23.8519 - val_accuracy: 0.1000
+Epoch 44/100
+4/4 [==============================] - 0s 9ms/step - loss: 21.8561 - accuracy: 0.1160 - val_loss: 37.2674 - val_accuracy: 0.1000
+Epoch 45/100
+4/4 [==============================] - 0s 10ms/step - loss: 28.3689 - accuracy: 0.1200 - val_loss: 50.9949 - val_accuracy: 0.1000
+Epoch 46/100
+4/4 [==============================] - 0s 11ms/step - loss: 37.0924 - accuracy: 0.1120 - val_loss: 37.8075 - val_accuracy: 0.1000
+Epoch 47/100
+4/4 [==============================] - 0s 15ms/step - loss: 22.4427 - accuracy: 0.1220 - val_loss: 31.0246 - val_accuracy: 0.1000
+Epoch 48/100
+4/4 [==============================] - 0s 16ms/step - loss: 30.8454 - accuracy: 0.1160 - val_loss: 40.3705 - val_accuracy: 0.1000
+Epoch 49/100
+4/4 [==============================] - 0s 12ms/step - loss: 30.1953 - accuracy: 0.1080 - val_loss: 39.0889 - val_accuracy: 0.1000
+Epoch 50/100
+4/4 [==============================] - 0s 10ms/step - loss: 19.4889 - accuracy: 0.1080 - val_loss: 34.6825 - val_accuracy: 0.1000
+Epoch 51/100
+4/4 [==============================] - 0s 10ms/step - loss: 34.8757 - accuracy: 0.1300 - val_loss: 49.4359 - val_accuracy: 0.1000
+Epoch 52/100
+4/4 [==============================] - 0s 10ms/step - loss: 34.9451 - accuracy: 0.1140 - val_loss: 31.5136 - val_accuracy: 0.1000
+Epoch 53/100
+4/4 [==============================] - 0s 10ms/step - loss: 22.9106 - accuracy: 0.1380 - val_loss: 26.9605 - val_accuracy: 0.1000
+Epoch 54/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.2229 - accuracy: 0.1040 - val_loss: 38.6458 - val_accuracy: 0.1000
+Epoch 55/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.1122 - accuracy: 0.1140 - val_loss: 45.1972 - val_accuracy: 0.1000
+Epoch 56/100
+4/4 [==============================] - 0s 10ms/step - loss: 36.5613 - accuracy: 0.1280 - val_loss: 33.8477 - val_accuracy: 0.1000
+Epoch 57/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.9645 - accuracy: 0.1020 - val_loss: 29.3765 - val_accuracy: 0.1000
+Epoch 58/100
+4/4 [==============================] - 0s 9ms/step - loss: 23.7523 - accuracy: 0.1140 - val_loss: 38.5822 - val_accuracy: 0.1000
+Epoch 59/100
+4/4 [==============================] - 0s 10ms/step - loss: 30.7082 - accuracy: 0.1440 - val_loss: 40.9264 - val_accuracy: 0.1000
+Epoch 60/100
+4/4 [==============================] - 0s 15ms/step - loss: 31.7553 - accuracy: 0.1200 - val_loss: 28.5086 - val_accuracy: 0.1000
+Epoch 61/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.3221 - accuracy: 0.1240 - val_loss: 32.6517 - val_accuracy: 0.1000
+Epoch 62/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.3470 - accuracy: 0.1200 - val_loss: 39.8263 - val_accuracy: 0.1000
+Epoch 63/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.0612 - accuracy: 0.1240 - val_loss: 34.5444 - val_accuracy: 0.1000
+Epoch 64/100
+4/4 [==============================] - 0s 11ms/step - loss: 34.7778 - accuracy: 0.1200 - val_loss: 44.2647 - val_accuracy: 0.1000
+Epoch 65/100
+4/4 [==============================] - 0s 12ms/step - loss: 34.8926 - accuracy: 0.1080 - val_loss: 34.5197 - val_accuracy: 0.1000
+Epoch 66/100
+4/4 [==============================] - 0s 11ms/step - loss: 24.3221 - accuracy: 0.1220 - val_loss: 30.9930 - val_accuracy: 0.1000
+Epoch 67/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.4201 - accuracy: 0.1160 - val_loss: 37.4984 - val_accuracy: 0.1000
+Epoch 68/100
+4/4 [==============================] - 0s 10ms/step - loss: 28.9322 - accuracy: 0.1280 - val_loss: 36.6450 - val_accuracy: 0.1000
+Epoch 69/100
+4/4 [==============================] - 0s 14ms/step - loss: 28.5764 - accuracy: 0.1320 - val_loss: 34.3183 - val_accuracy: 0.1000
+Epoch 70/100
+4/4 [==============================] - 0s 16ms/step - loss: 23.6287 - accuracy: 0.1200 - val_loss: 40.6597 - val_accuracy: 0.1000
+Epoch 71/100
+4/4 [==============================] - 0s 10ms/step - loss: 30.6631 - accuracy: 0.1160 - val_loss: 43.1053 - val_accuracy: 0.1000
+Epoch 72/100
+4/4 [==============================] - 0s 10ms/step - loss: 31.3124 - accuracy: 0.1160 - val_loss: 31.0489 - val_accuracy: 0.1000
+Epoch 73/100
+4/4 [==============================] - 0s 10ms/step - loss: 24.3881 - accuracy: 0.1100 - val_loss: 36.0015 - val_accuracy: 0.1000
+Epoch 74/100
+4/4 [==============================] - 0s 12ms/step - loss: 32.8749 - accuracy: 0.1060 - val_loss: 31.0803 - val_accuracy: 0.1000
+Epoch 75/100
+4/4 [==============================] - 0s 11ms/step - loss: 23.9160 - accuracy: 0.1160 - val_loss: 32.9105 - val_accuracy: 0.1000
+Epoch 76/100
+4/4 [==============================] - 0s 11ms/step - loss: 31.2406 - accuracy: 0.1140 - val_loss: 34.7558 - val_accuracy: 0.1000
+Epoch 77/100
+4/4 [==============================] - 0s 10ms/step - loss: 26.3004 - accuracy: 0.1220 - val_loss: 40.3014 - val_accuracy: 0.1000
+Epoch 78/100
+4/4 [==============================] - 0s 9ms/step - loss: 37.0920 - accuracy: 0.1340 - val_loss: 27.9852 - val_accuracy: 0.1000
+Epoch 79/100
+4/4 [==============================] - 0s 10ms/step - loss: 20.3414 - accuracy: 0.1140 - val_loss: 27.2020 - val_accuracy: 0.1000
+Epoch 80/100
+4/4 [==============================] - 0s 9ms/step - loss: 29.3138 - accuracy: 0.1340 - val_loss: 47.7526 - val_accuracy: 0.1000
+Epoch 81/100
+4/4 [==============================] - 0s 9ms/step - loss: 34.6481 - accuracy: 0.1320 - val_loss: 32.0029 - val_accuracy: 0.1000
+Epoch 82/100
+4/4 [==============================] - 0s 10ms/step - loss: 19.7531 - accuracy: 0.1260 - val_loss: 23.1984 - val_accuracy: 0.1000
+Epoch 83/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.6197 - accuracy: 0.1200 - val_loss: 44.1223 - val_accuracy: 0.1000
+Epoch 84/100
+4/4 [==============================] - 0s 14ms/step - loss: 42.5353 - accuracy: 0.1200 - val_loss: 33.2591 - val_accuracy: 0.1000
+Epoch 85/100
+4/4 [==============================] - 0s 11ms/step - loss: 19.8397 - accuracy: 0.1200 - val_loss: 18.8762 - val_accuracy: 0.1000
+Epoch 86/100
+4/4 [==============================] - 0s 15ms/step - loss: 19.0276 - accuracy: 0.1200 - val_loss: 39.6742 - val_accuracy: 0.1000
+Epoch 87/100
+4/4 [==============================] - 0s 11ms/step - loss: 45.4169 - accuracy: 0.1160 - val_loss: 33.8931 - val_accuracy: 0.1000
+Epoch 88/100
+4/4 [==============================] - 0s 12ms/step - loss: 26.4559 - accuracy: 0.1100 - val_loss: 16.6738 - val_accuracy: 0.1040
+Epoch 89/100
+4/4 [==============================] - 0s 10ms/step - loss: 12.4969 - accuracy: 0.1260 - val_loss: 33.8079 - val_accuracy: 0.1000
+Epoch 90/100
+4/4 [==============================] - 0s 16ms/step - loss: 38.4502 - accuracy: 0.1000 - val_loss: 49.4086 - val_accuracy: 0.1000
+Epoch 91/100
+4/4 [==============================] - 0s 14ms/step - loss: 29.9915 - accuracy: 0.1280 - val_loss: 36.8529 - val_accuracy: 0.1000
+Epoch 92/100
+4/4 [==============================] - 0s 14ms/step - loss: 25.7386 - accuracy: 0.1040 - val_loss: 31.6561 - val_accuracy: 0.1000
+Epoch 93/100
+4/4 [==============================] - 0s 10ms/step - loss: 27.4582 - accuracy: 0.1160 - val_loss: 50.1114 - val_accuracy: 0.1000
+Epoch 94/100
+4/4 [==============================] - 0s 9ms/step - loss: 36.5150 - accuracy: 0.0920 - val_loss: 28.7904 - val_accuracy: 0.1000
+Epoch 95/100
+4/4 [==============================] - 0s 9ms/step - loss: 19.6982 - accuracy: 0.1280 - val_loss: 35.2172 - val_accuracy: 0.1000
+Epoch 96/100
+4/4 [==============================] - 0s 10ms/step - loss: 31.5606 - accuracy: 0.1000 - val_loss: 39.6383 - val_accuracy: 0.1000
+Epoch 97/100
+4/4 [==============================] - 0s 9ms/step - loss: 32.0419 - accuracy: 0.1100 - val_loss: 37.4634 - val_accuracy: 0.1000
+Epoch 98/100
+4/4 [==============================] - 0s 10ms/step - loss: 25.6015 - accuracy: 0.1280 - val_loss: 23.4898 - val_accuracy: 0.1000
+Epoch 99/100
+4/4 [==============================] - 0s 10ms/step - loss: 22.4975 - accuracy: 0.1100 - val_loss: 41.4927 - val_accuracy: 0.1000
+Epoch 100/100
+4/4 [==============================] - 0s 10ms/step - loss: 38.1962 - accuracy: 0.1000 - val_loss: 33.3583 - val_accuracy: 0.1000
 </pre></div></div>
 </div>
-<p>You should have been able to see your logs in real time on the web app with the metrics you defined:</p>
-<p><img alt="image0" src="https://i.imgur.com/C1EuWC2.png" /></p>
-<p>This was all for the quickstart example, but there is a lot more you can do with this project, check out <a class="reference external" href="https://rishit-dagli.github.io/TF-Watcher/">the documentation</a> to know more.</p>
 </div>
 </div>
 
