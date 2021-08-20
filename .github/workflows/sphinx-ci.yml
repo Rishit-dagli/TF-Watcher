@@ -41,7 +41,7 @@ jobs:
 
     - uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "apt-get update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended imagemagick"
+        pre-build-command: "apt-get --allow-releaseinfo-change update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended imagemagick"
         build-command: "make latexpdf"
         docs-folder: "docs/"
 
