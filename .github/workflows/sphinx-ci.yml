@@ -16,7 +16,7 @@ jobs:
 
     - uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "apt-get update -y && apt-get install -y pandoc"
+        pre-build-command: "apt-get install -y pandoc"
         docs-folder: "docs/"
     
     - name: Commit documentation changes
