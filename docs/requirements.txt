@@ -1,4 +1,4 @@
-Sphinx==4.1.2
+Sphinx==4.2.0
 pyrebase4
 tensorflow
 sphinx-rtd-theme
