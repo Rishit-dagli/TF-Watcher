@@ -51,7 +51,7 @@ setup(
     author="Rishit Dagli",
     author_email="rishit.dagli@gmail.com",
     install_requires=[
-        "tensorflow ~= 2.5.0",
+        "tensorflow >= 2.5.0",
         "pyrebase4 ~= 4.5.0",
     ],
     extras_require={
