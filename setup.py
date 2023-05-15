@@ -52,7 +52,7 @@ setup(
     author_email="rishit.dagli@gmail.com",
     install_requires=[
         "tensorflow >= 2.5.0",
-        "pyrebase4 ~= 4.5.0",
+        "pyrebase4 >= 4.5,< 4.8",
     ],
     extras_require={
         "dev": [
